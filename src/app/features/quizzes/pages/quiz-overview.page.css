@@ -1,0 +1,35 @@
+.overview-card {
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 55%, transparent);
+  background:
+    radial-gradient(
+      1100px 260px at 100% -10%,
+      color-mix(in srgb, var(--mat-sys-primary-container) 30%, transparent),
+      transparent
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--mat-sys-surface) 96%, transparent),
+      color-mix(in srgb, var(--mat-sys-surface-container) 96%, transparent)
+    );
+}
+
+.tag {
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline) 35%, transparent);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  background-color: color-mix(in srgb, var(--mat-sys-secondary-container) 35%, transparent);
+}
+
+.stat-box {
+  border-radius: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 40%, transparent);
+  padding: 0.75rem;
+  background: color-mix(in srgb, var(--mat-sys-surface-container-low) 90%, transparent);
+}
+
+.history-table th,
+.history-table td {
+  text-align: left;
+  padding: 0.6rem 0.45rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 45%, transparent);
+}

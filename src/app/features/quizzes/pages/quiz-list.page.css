@@ -1,0 +1,19 @@
+.kicker {
+  color: color-mix(in srgb, var(--mat-sys-primary) 70%, var(--mat-sys-on-surface));
+}
+
+.quiz-card {
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 55%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--mat-sys-surface-container) 95%, transparent),
+    color-mix(in srgb, var(--mat-sys-surface) 90%, transparent)
+  );
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline) 35%, transparent);
+  background: color-mix(in srgb, var(--mat-sys-primary-container) 32%, transparent);
+}

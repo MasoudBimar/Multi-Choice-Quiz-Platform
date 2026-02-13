@@ -1,3 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
-@import "tailwindcss";
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+}
+
+mat-card {
+  border-radius: 1rem !important;
+}

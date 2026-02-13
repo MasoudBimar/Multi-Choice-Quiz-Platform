@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--mat-sys-surface) 86%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 40%, transparent);
+}
+
+.brand {
+  color: var(--mat-sys-primary);
+  text-decoration: none;
+}
+
+.active-link {
+  border-color: var(--mat-sys-primary);
+}
+
+.storage-warning {
+  border-bottom: 1px solid color-mix(in srgb, var(--mat-sys-error) 50%, transparent);
+  color: var(--mat-sys-on-error-container);
+  background-color: color-mix(in srgb, var(--mat-sys-error-container) 80%, transparent);
+}
+
+.app-content {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}

@@ -1,0 +1,95 @@
+@if (results(); as model) {
+  <section class="space-y-6">
+    <mat-card class="summary-card p-6">
+      <h1 class="text-3xl font-bold">Results: {{ model.quizTitle }}</h1>
+      <p class="mt-2 text-sm opacity-80">
+        Attempt {{ model.attemptId }}
+        @if (model.finishedAt) {
+          <span> • Finished {{ model.finishedAt | date: 'medium' }}</span>
+        }
+      </p>
+
+      <div class="mt-5 grid gap-3 sm:grid-cols-4">
+        <div class="score-box">
+          <p class="text-xs uppercase tracking-wide">Score</p>
+          <p class="text-2xl font-semibold">{{ model.scorePercent }}%</p>
+        </div>
+        <div class="score-box">
+          <p class="text-xs uppercase tracking-wide">Correct</p>
+          <p class="text-2xl font-semibold">{{ model.correctCount }}</p>
+        </div>
+        <div class="score-box">
+          <p class="text-xs uppercase tracking-wide">Incorrect</p>
+          <p class="text-2xl font-semibold">{{ model.incorrectCount }}</p>
+        </div>
+        <div class="score-box">
+          <p class="text-xs uppercase tracking-wide">Duration</p>
+          <p class="text-2xl font-semibold">{{ model.durationSeconds }}s</p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <button mat-flat-button color="primary" (click)="attemptStore.restartAttempt()" [routerLink]="['../../take']" [queryParams]="{ mode: 'new' }">
+          Retake
+        </button>
+        <a mat-stroked-button [routerLink]="['../../']">Back to Quiz</a>
+        <a mat-button routerLink="/quizzes">Back to Catalog</a>
+      </div>
+    </mat-card>
+
+    <mat-accordion class="space-y-3" multi>
+      @for (row of model.questions; track row.questionId) {
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ row.prompt }}</mat-panel-title>
+            <mat-panel-description>
+              @if (row.isCorrect) {
+                <span class="status-ok">Correct</span>
+              } @else {
+                <span class="status-bad">Incorrect</span>
+              }
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="space-y-3 text-sm">
+            @for (choiceId of row.presentedChoiceIds; track choiceId) {
+              <div
+                class="choice-row"
+                [class.choice-selected]="isSelected(row.questionId, row.selectedChoiceIds, choiceId)"
+                [class.choice-correct]="isCorrect(row.correctChoiceIds, choiceId)"
+              >
+                <div class="font-medium">{{ choiceText(row.questionId, choiceId) }}</div>
+                <div class="mt-1 flex gap-2">
+                  @if (isSelected(row.questionId, row.selectedChoiceIds, choiceId)) {
+                    <mat-chip color="primary">Your answer</mat-chip>
+                  }
+                  @if (isCorrect(row.correctChoiceIds, choiceId)) {
+                    <mat-chip color="accent">Correct</mat-chip>
+                  }
+                </div>
+              </div>
+            }
+
+            @if (row.explanation) {
+              <div class="explanation mt-3">
+                <h4 class="text-sm font-semibold">Explanation</h4>
+                <p class="mt-1">{{ row.explanation }}</p>
+              </div>
+            }
+          </div>
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </section>
+} @else {
+  <mat-card class="p-6">
+    <h2 class="text-xl font-semibold">Results unavailable</h2>
+    <p class="mt-2 text-sm opacity-80">
+      {{ attemptStore.error() || 'No result data found for this attempt.' }}
+    </p>
+    <div class="mt-4 flex gap-3">
+      <a mat-flat-button [routerLink]="['../../']">Back to Quiz</a>
+      <a mat-button routerLink="/quizzes">Back to Catalog</a>
+    </div>
+  </mat-card>
+}

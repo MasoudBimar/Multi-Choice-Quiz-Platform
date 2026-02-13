@@ -1,0 +1,24 @@
+.question-card {
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 45%, transparent);
+  background:
+    radial-gradient(
+      1200px 220px at 80% -10%,
+      color-mix(in srgb, var(--mat-sys-tertiary-container) 24%, transparent),
+      transparent
+    ),
+    color-mix(in srgb, var(--mat-sys-surface-container-lowest) 92%, transparent);
+}
+
+.answer-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.answer-option {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 40%, transparent);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.95rem;
+  background-color: color-mix(in srgb, var(--mat-sys-surface-container-low) 85%, transparent);
+}
