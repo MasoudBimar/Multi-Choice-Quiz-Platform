@@ -1,0 +1,72 @@
+{
+  "id": "angular-signals",
+  "title": "Angular Signals",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ngs-q1",
+      "type": "single",
+      "prompt": "What does `computed()` provide in Angular Signals?",
+      "choices": [
+        { "id": "a", "text": "A writable signal" },
+        { "id": "b", "text": "A derived read-only signal" },
+        { "id": "c", "text": "An observable" },
+        { "id": "d", "text": "A dependency injection token" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "`computed` derives values from other signals and is read-only."
+    },
+    {
+      "id": "ngs-q2",
+      "type": "single",
+      "prompt": "Which API updates signal state inside @ngrx/signals SignalStore?",
+      "choices": [
+        { "id": "a", "text": "setState" },
+        { "id": "b", "text": "patchState" },
+        { "id": "c", "text": "dispatch" },
+        { "id": "d", "text": "assignState" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "SignalStore uses `patchState(store, partial)` for immutable partial updates."
+    },
+    {
+      "id": "ngs-q3",
+      "type": "single",
+      "prompt": "What is the main purpose of `effect()` with signals?",
+      "choices": [
+        { "id": "a", "text": "Create derived state" },
+        { "id": "b", "text": "Perform side effects when dependencies change" },
+        { "id": "c", "text": "Define routes" },
+        { "id": "d", "text": "Trigger lazy loading" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "`effect` reacts to signal changes and is intended for side effects."
+    },
+    {
+      "id": "ngs-q4",
+      "type": "single",
+      "prompt": "How should a signal value be read in a template?",
+      "choices": [
+        { "id": "a", "text": "`signal.value`" },
+        { "id": "b", "text": "`signal.get()`" },
+        { "id": "c", "text": "`signal()`" },
+        { "id": "d", "text": "`read(signal)`" }
+      ],
+      "correctChoiceIds": ["c"],
+      "explanation": "Signals are functions. Reading them requires invoking as `signal()`."
+    },
+    {
+      "id": "ngs-q5",
+      "type": "single",
+      "prompt": "What is a key advantage of Signals in Angular change detection?",
+      "choices": [
+        { "id": "a", "text": "They remove TypeScript compilation" },
+        { "id": "b", "text": "They provide fine-grained reactive updates" },
+        { "id": "c", "text": "They replace routing" },
+        { "id": "d", "text": "They force global state" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Signals update only consumers depending on changed signal values."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "javascript-basics",
+  "title": "Javascript Basics",
+  "version": 1,
+  "questions": [
+    {
+      "id": "js-q1",
+      "type": "single",
+      "prompt": "What does the TypeScript `unknown` type require before usage?",
+      "choices": [
+        { "id": "a", "text": "It can be used anywhere without checks" },
+        { "id": "b", "text": "A type assertion or narrowing step" },
+        { "id": "c", "text": "A decorator" },
+        { "id": "d", "text": "A generic constraint" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Values typed as `unknown` must be narrowed or asserted before property access or assignment."
+    }
+  ]
+}

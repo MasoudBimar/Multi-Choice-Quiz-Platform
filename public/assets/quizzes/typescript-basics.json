@@ -1,0 +1,72 @@
+{
+  "id": "typescript-basics",
+  "title": "TypeScript Basics",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ts-q1",
+      "type": "single",
+      "prompt": "What does the TypeScript `unknown` type require before usage?",
+      "choices": [
+        { "id": "a", "text": "It can be used anywhere without checks" },
+        { "id": "b", "text": "A type assertion or narrowing step" },
+        { "id": "c", "text": "A decorator" },
+        { "id": "d", "text": "A generic constraint" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Values typed as `unknown` must be narrowed or asserted before property access or assignment."
+    },
+    {
+      "id": "ts-q2",
+      "type": "single",
+      "prompt": "Which compiler option enables strict null checking?",
+      "choices": [
+        { "id": "a", "text": "`noImplicitAny`" },
+        { "id": "b", "text": "`skipLibCheck`" },
+        { "id": "c", "text": "`strictNullChecks`" },
+        { "id": "d", "text": "`preserveConstEnums`" }
+      ],
+      "correctChoiceIds": ["c"],
+      "explanation": "`strictNullChecks` makes `null` and `undefined` distinct types unless explicitly included."
+    },
+    {
+      "id": "ts-q3",
+      "type": "single",
+      "prompt": "What does `readonly` do on a TypeScript interface property?",
+      "choices": [
+        { "id": "a", "text": "Makes the property private" },
+        { "id": "b", "text": "Allows assignment only in constructors" },
+        { "id": "c", "text": "Prevents reassignment after initialization" },
+        { "id": "d", "text": "Removes the property from emitted JavaScript" }
+      ],
+      "correctChoiceIds": ["c"],
+      "explanation": "`readonly` prevents assignment after initialization at compile time."
+    },
+    {
+      "id": "ts-q4",
+      "type": "single",
+      "prompt": "Which utility type makes all properties optional?",
+      "choices": [
+        { "id": "a", "text": "`Required<T>`" },
+        { "id": "b", "text": "`Readonly<T>`" },
+        { "id": "c", "text": "`Pick<T, K>`" },
+        { "id": "d", "text": "`Partial<T>`" }
+      ],
+      "correctChoiceIds": ["d"],
+      "explanation": "`Partial<T>` maps every property in `T` to optional."
+    },
+    {
+      "id": "ts-q5",
+      "type": "single",
+      "prompt": "What is the inferred type of `[1, 2, 3] as const`?",
+      "choices": [
+        { "id": "a", "text": "number[]" },
+        { "id": "b", "text": "readonly [1, 2, 3]" },
+        { "id": "c", "text": "readonly number[]" },
+        { "id": "d", "text": "[number, number, number]" }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "`as const` freezes literal types and tuple readonlyness."
+    }
+  ]
+}

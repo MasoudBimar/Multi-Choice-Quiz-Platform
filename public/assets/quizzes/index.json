@@ -1,0 +1,83 @@
+{
+  "quizzes": [
+    {
+      "id": "typescript-basics",
+      "title": "TypeScript Basics",
+      "description": "Core TypeScript syntax, typing behavior, and compiler concepts.",
+      "jsonPath": "/assets/quizzes/typescript-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "quizzBackgroundColor": "linear-gradient(135deg, #007ACC 0%, #2F80ED 45%, #003A66 100%)"
+    },
+    {
+      "id": "angular-signals",
+      "title": "Angular Signals",
+      "description": "Practical Angular Signals patterns, computed state, and effects.",
+      "jsonPath": "/assets/quizzes/angular-signals.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(135deg, #A841DA 0%, #D93E9C 55%, #E2338C 100%)"
+    },
+    {
+      "id": "angular-basics",
+      "title": "Angular Basics",
+      "description": "Practical Angular Basics",
+      "jsonPath": "/assets/quizzes/angular-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(90deg, #A841DA 0%, #D93E9C 55%, #E2338C 100%)"
+    },
+    {
+      "id": "angular-testing-basics",
+      "title": "Angular Testing Basics",
+      "description": "Practical Angular Testing Basics",
+      "jsonPath": "/assets/quizzes/angular-testing-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(135deg, #C21325 0%, #DD0031 55%, #5A0010 100%)"
+    },
+    {
+      "id": "javascript-basics",
+      "title": "Javascript Basics",
+      "description": "Core Javascript syntax.",
+      "jsonPath": "/assets/quizzes/javascript-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(135deg, #4A3B00 0%, #B08900 45%, #F7DF1E 120%)"
+    },
+    {
+      "id": "rxjs-basics",
+      "title": "RxJs Basics",
+      "description": "Practical RxJs Basics",
+      "jsonPath": "/assets/quizzes/rxjs-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(135deg, #5F1F86 0%, #A11D8D 40%, #E1098E 85%, #DC5EAE 120%)"
+    },
+    {
+      "id": "git-basics",
+      "title": "Git Basics",
+      "description": "Practical Git Basics",
+      "jsonPath": "/assets/quizzes/git-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(135deg, #F05032 0%, #FF6A3D 45%, #7A2A1B 100%)"
+    },
+    {
+      "id": "ngrx-basics",
+      "title": "NgRx Basics",
+      "description": "Practical NgRx Basics",
+      "jsonPath": "/assets/quizzes/ngrx-basics.json",
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "timeLimitSeconds": 600,
+      "quizzBackgroundColor": "linear-gradient(135deg, #B7178C 0%, #7A1FA2 55%, #2A0033 100%)"
+    }
+  ]
+}

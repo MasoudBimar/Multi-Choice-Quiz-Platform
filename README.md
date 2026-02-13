@@ -1,59 +1,87 @@
-# MCGs
+# Quiz Forge (Angular 21 MCQ Platform)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+A production-style MCQ quiz platform built with Angular 21 standalone APIs, Angular Signals, @ngrx/signals SignalStore, Angular Material 3 theming, and Tailwind utilities.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+- Angular 21 (standalone components + signals)
+- Angular Material 3 (official theming via `mat.theme` + system variables)
+- Tailwind CSS v4
+- State management: `@ngrx/signals` SignalStore
+- Persistence: `localStorage` with in-memory fallback
+- Tests: Native Angular 21 test runner (Vitest)
 
-```bash
-ng serve
+## Features
+
+- Quiz catalog loaded from `assets/quizzes/index.json`
+- Multiple quiz packs (JSON-driven content)
+- Runtime schema validation for catalog and quiz payloads
+- Deterministic seeded randomization for question + answer order
+- Resume/restart attempts with stable ordering across refresh
+- Progress tracking, scoring, and detailed review results
+- Attempt history and aggregated stats persisted per quiz
+- Dark mode preference persisted via UI prefs store
+- Compatibility protection when quiz version/content changes
+
+## Folder Structure
+
+```text
+src/app/
+  core/
+    services/
+    utils/
+  data/
+    models/
+    services/
+    validation/
+  state/
+    stores/
+    tokens/
+  features/quizzes/
+    components/
+    pages/
+    resolvers/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Local Persistence Keys
 
-## Code scaffolding
+- `quiz_attempt::<quizId>`: latest attempt snapshot per quiz
+- `quiz_attempt_archive::<attemptId>`: archived finished attempt details for results replay
+- `quiz_history`: global array of attempt summaries
+- `quiz_stats::<quizId>`: aggregated quiz statistics
+- `ui_prefs`: UI theme preference
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Run
 
 ```bash
-ng generate --help
+pnpm install
+pnpm start
 ```
 
-## Building
+App URL: `http://localhost:4200`
 
-To build the project run:
+## Test (Vitest via `ng test`)
 
 ```bash
-ng build
+pnpm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Optional watch mode:
 
 ```bash
-ng test
+pnpm test:watch
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Build
 
 ```bash
-ng e2e
+pnpm build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Architecture Notes
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `QuizCatalogStore` (root store): loads catalog + definitions, caches quiz metadata, exposes stats snapshots.
+- `QuizAttemptStore` (route-scoped store): one store instance per `/quiz/:quizId` route context, handles attempt lifecycle, derived scoring/results selectors, and debounced persistence.
+- `UiPrefsStore` (root store): dark/light mode signal with persistent storage and body theme class sync.
+- Randomization uses `mulberry32` seeded by hashed string seed to keep order reproducible on resume.
+- Quiz JSON is validated at runtime with lightweight custom validators and routed to an error view when invalid.

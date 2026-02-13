@@ -1,0 +1,34 @@
+{
+  "id": "ngrx-basics",
+  "title": "NgRx Basics",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ngrx-q1",
+      "type": "single",
+      "prompt": "What does `computed()` provide in Angular Signals?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A writable signal"
+        },
+        {
+          "id": "b",
+          "text": "A derived read-only signal"
+        },
+        {
+          "id": "c",
+          "text": "An observable"
+        },
+        {
+          "id": "d",
+          "text": "A dependency injection token"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "explanation": "`computed` derives values from other signals and is read-only."
+    }
+  ]
+}
