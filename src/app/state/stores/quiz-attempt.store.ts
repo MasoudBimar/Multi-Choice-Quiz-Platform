@@ -71,7 +71,7 @@ const initialState: QuizAttemptState = {
   stats: null,
 };
 
-function normalizeIds(ids: string[]): string[] {
+function normalizeIds(...ids: string[]): string[] {
   return [...ids].sort((left, right) => left.localeCompare(right));
 }
 
@@ -153,8 +153,9 @@ function buildPersistedSnapshotFromSignals(store: {
 function scoreAttempt(definition: QuizDefinition, attempt: QuizAttemptPersisted): number {
   return definition.questions.reduce((score, question) => {
     const selected = attempt.answers[question.id]?.selectedChoiceIds ?? [];
+    const correctChoiceIds = Array.isArray(question.correctChoiceIds) ? question.correctChoiceIds : [question.correctChoiceIds];
     const isCorrect =
-      normalizeIds(selected).join('|') === normalizeIds(question.correctChoiceIds).join('|');
+      normalizeIds(...selected).join('|') === normalizeIds(...correctChoiceIds).join('|');
     return isCorrect ? score + 1 : score;
   }, 0);
 }
@@ -211,7 +212,8 @@ export const QuizAttemptStore = signalStore(
       return definition.questions
         .filter((question) => {
           const selected = store.answers()[question.id]?.selectedChoiceIds ?? [];
-          return normalizeIds(selected).join('|') === normalizeIds(question.correctChoiceIds).join('|');
+          const correctChoiceIds = Array.isArray(question.correctChoiceIds) ? question.correctChoiceIds : [question.correctChoiceIds]
+          return normalizeIds(...selected).join('|') === normalizeIds(...correctChoiceIds).join('|');
         })
         .map((question) => question.id);
     });
@@ -225,7 +227,8 @@ export const QuizAttemptStore = signalStore(
       return definition.questions
         .filter((question) => {
           const selected = store.answers()[question.id]?.selectedChoiceIds ?? [];
-          return normalizeIds(selected).join('|') !== normalizeIds(question.correctChoiceIds).join('|');
+          const correctChoiceIds = Array.isArray(question.correctChoiceIds) ? question.correctChoiceIds : [question.correctChoiceIds];
+          return normalizeIds(...selected).join('|') !== normalizeIds(...correctChoiceIds).join('|');
         })
         .map((question) => question.id);
     });
@@ -302,14 +305,14 @@ export const QuizAttemptStore = signalStore(
           durationSeconds: Math.max(0, Math.round(((finishedAt ?? Date.now()) - startedAt) / 1000)),
           questions: definition.questions.map((question) => {
             const selectedChoiceIds = store.answers()[question.id]?.selectedChoiceIds ?? [];
-            const isCorrect =
-              normalizeIds(selectedChoiceIds).join('|') === normalizeIds(question.correctChoiceIds).join('|');
+            const correctChoiceIds = Array.isArray(question.correctChoiceIds) ? question.correctChoiceIds : [question.correctChoiceIds];
+            const isCorrect = normalizeIds(...selectedChoiceIds).join('|') === normalizeIds(...correctChoiceIds).join('|');
 
             return {
               questionId: question.id,
               prompt: question.prompt,
               selectedChoiceIds,
-              correctChoiceIds: question.correctChoiceIds,
+              correctChoiceIds: Array.isArray(question.correctChoiceIds) ? question.correctChoiceIds : [question.correctChoiceIds],
               isCorrect,
               explanation: question.explanation,
               presentedChoiceIds:

@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
 import { QuizAttemptStore } from '../../../state/stores/quiz-attempt.store';
 import { QuizResolvedData } from '../../../state/tokens/quiz-route-data';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-quiz-runner-page',
@@ -19,6 +20,7 @@ import { QuizResolvedData } from '../../../state/tokens/quiz-route-data';
     MatProgressBarModule,
     MatRadioModule,
     MatDividerModule,
+    MatCheckboxModule
   ],
   templateUrl: './quiz-runner.page.html',
   styleUrl: './quiz-runner.page.css',

@@ -1,5 +1,12 @@
 export type QuizQuestionType = 'single' | 'multi';
 
+export type QuizControlType = 'textbox' | 'unknown';
+
+export interface QuestionChoice {
+  id: string;
+  text: string;
+}
+
 export interface QuizCatalogEntry {
   id: string;
   title: string;
@@ -21,13 +28,45 @@ export interface QuizChoice {
   text: string;
 }
 
-export interface QuizQuestion {
+export class QuizQuestion {
   id: string;
+  key: string;
+  label: string;
+  title: string;
+  required?: boolean;
+  order?: number;
   type: QuizQuestionType;
-  prompt: string;
-  choices: QuizChoice[];
-  correctChoiceIds: string[];
+  controlType: QuizControlType;
+  choices: QuestionChoice[];
+  correctChoiceIds: string | string[];
   explanation?: string;
+  prompt: string;
+  constructor(
+    options: {
+      key?: string;
+      label?: string;
+      required?: boolean;
+      order?: number;
+      type?: QuizQuestionType;
+      controlType?: QuizControlType;
+      choices?: QuestionChoice[];
+      correctChoiceIds?: string | string[];
+      explanation?: string;
+      prompt?: string;
+    } = {},
+  ) {
+    this.id = crypto.randomUUID();
+    this.key = options.key || '';
+    this.label = this.title = options.label || '';
+    this.required = !!options.required;
+    this.order = options.order === undefined ? 1 : options.order;
+    this.type = options.type || 'single';
+    this.controlType = options.controlType || 'textbox';
+    this.choices = options.choices || [];
+    this.correctChoiceIds = options.correctChoiceIds || [];
+    this.explanation = options.explanation;
+    this.prompt = options.prompt || 'what does it mean?';
+  }
 }
 
 export interface QuizDefinition {

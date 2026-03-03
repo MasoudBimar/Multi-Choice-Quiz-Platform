@@ -4,68 +4,1353 @@
   "version": 1,
   "questions": [
     {
-      "id": "ts-q1",
+      "id": "ts-q001",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-01",
+      "title": "TypeScript Definition",
+      "required": true,
+      "order": 1,
       "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q001_c1",
+          "text": "A syntactic superset of JavaScript that adds static types"
+        },
+        {
+          "id": "q001_c2",
+          "text": "A JavaScript runtime like Node.js"
+        },
+        {
+          "id": "q001_c3",
+          "text": "A CSS framework for web apps"
+        },
+        {
+          "id": "q001_c4",
+          "text": "A browser-only programming language"
+        }
+      ],
+      "correctChoiceIds": "q001_c1",
+      "explanation": "TypeScript extends JavaScript syntax with a static type system.",
+      "prompt": "What is TypeScript?"
+    },
+    {
+      "id": "ts-q002",
+      "value": null,
+      "key": "ts_main_goal",
+      "label": "TS-02",
+      "title": "Main Goal",
+      "required": true,
+      "order": 2,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q002_c1",
+          "text": "Catch errors early through compile-time type checking"
+        },
+        {
+          "id": "q002_c2",
+          "text": "Replace JavaScript engines"
+        },
+        {
+          "id": "q002_c3",
+          "text": "Eliminate the need for transpilation"
+        },
+        {
+          "id": "q002_c4",
+          "text": "Run directly in the browser without JavaScript"
+        }
+      ],
+      "correctChoiceIds": "q002_c1",
+      "explanation": "TypeScript improves reliability by checking types before runtime.",
+      "prompt": "Why is TypeScript designed for better developer efficiency?"
+    },
+    {
+      "id": "ts-q003",
+      "value": null,
+      "key": "ts_output_runtime",
+      "label": "TS-03",
+      "title": "Transpilation Output",
+      "required": true,
+      "order": 3,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q003_c1",
+          "text": "It transpiles to plain JavaScript that runs anywhere JavaScript runs"
+        },
+        {
+          "id": "q003_c2",
+          "text": "It compiles to machine code only for Windows"
+        },
+        {
+          "id": "q003_c3",
+          "text": "It outputs Python bytecode"
+        },
+        {
+          "id": "q003_c4",
+          "text": "It runs only in Deno and nowhere else"
+        }
+      ],
+      "correctChoiceIds": "q003_c1",
+      "explanation": "TypeScript emits JavaScript, so it works in browsers and Node.js.",
+      "prompt": "What happens to TypeScript code before execution?"
+    },
+    {
+      "id": "ts-q004",
+      "value": null,
+      "key": "check_js_inconsistency",
+      "label": "TS-04",
+      "title": "Checking .js Files",
+      "required": true,
+      "order": 4,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q004_c1",
+          "text": "Yes, TypeScript can type-check plain .js files when enabled"
+        },
+        {
+          "id": "q004_c2",
+          "text": "No, TypeScript only checks .ts files and ignores .js completely"
+        },
+        {
+          "id": "q004_c3",
+          "text": "Only if Babel is used instead of tsc"
+        },
+        {
+          "id": "q004_c4",
+          "text": "Only in production mode"
+        }
+      ],
+      "correctChoiceIds": "q004_c1",
+      "explanation": "TypeScript supports checking JavaScript files with proper configuration.",
+      "prompt": "Can TypeScript check inconsistencies in JavaScript code?"
+    },
+    {
+      "id": "ts-q005",
+      "value": null,
+      "key": "jsdoc_checkjs",
+      "label": "TS-05",
+      "title": "JS Type Checking Setup",
+      "required": true,
+      "order": 5,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q005_c1",
+          "text": "Use JSDoc + checkJs"
+        },
+        {
+          "id": "q005_c2",
+          "text": "Use only ESLint and no TypeScript config"
+        },
+        {
+          "id": "q005_c3",
+          "text": "Rename all files to .jsx"
+        },
+        {
+          "id": "q005_c4",
+          "text": "Use npm test without configuration"
+        }
+      ],
+      "correctChoiceIds": "q005_c1",
+      "explanation": "JSDoc annotations plus checkJs enable static checks in .js files.",
+      "prompt": "Which combination enables type checking in JavaScript files?"
+    },
+    {
+      "id": "ts-q006",
+      "value": null,
+      "key": "gradual_migration",
+      "label": "TS-06",
+      "title": "Gradual Typing",
+      "required": true,
+      "order": 6,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q006_c1",
+          "text": "Migrate gradually from .js to .ts files"
+        },
+        {
+          "id": "q006_c2",
+          "text": "Rewrite everything in one commit"
+        },
+        {
+          "id": "q006_c3",
+          "text": "Disable all checks permanently"
+        },
+        {
+          "id": "q006_c4",
+          "text": "Run only minified JavaScript"
+        }
+      ],
+      "correctChoiceIds": "q006_c1",
+      "explanation": "TypeScript supports incremental adoption instead of full rewrites.",
+      "prompt": "What is a practical way to adopt TypeScript in an existing JS project?"
+    },
+    {
+      "id": "ts-q007",
+      "value": null,
+      "key": "ecmascript_target_control",
+      "label": "TS-07",
+      "title": "ECMAScript Output Version",
+      "required": true,
+      "order": 7,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q007_c1",
+          "text": "Set target (and module) in tsconfig.json"
+        },
+        {
+          "id": "q007_c2",
+          "text": "Use package.json scripts only"
+        },
+        {
+          "id": "q007_c3",
+          "text": "Set VS Code theme to dark mode"
+        },
+        {
+          "id": "q007_c4",
+          "text": "Use browser DevTools settings"
+        }
+      ],
+      "correctChoiceIds": "q007_c1",
+      "explanation": "Transpile output is controlled through compiler options in tsconfig.",
+      "prompt": "How do you control which ECMAScript version TypeScript emits?"
+    },
+    {
+      "id": "ts-q008",
+      "value": null,
+      "key": "compileroptions_target",
+      "label": "TS-08",
+      "title": "Target Option Location",
+      "required": true,
+      "order": 8,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q008_c1",
+          "text": "tsconfig.json -> compilerOptions.target"
+        },
+        {
+          "id": "q008_c2",
+          "text": "launch.json -> target"
+        },
+        {
+          "id": "q008_c3",
+          "text": "package-lock.json -> target"
+        },
+        {
+          "id": "q008_c4",
+          "text": ".gitignore -> compiler target"
+        }
+      ],
+      "correctChoiceIds": "q008_c1",
+      "explanation": "The target setting belongs under compilerOptions in tsconfig.",
+      "prompt": "Where is the TypeScript transpile target configured?"
+    },
+    {
+      "id": "ts-q009",
+      "value": null,
+      "key": "parse_emit_note",
+      "label": "TS-09",
+      "title": "Parse and Emit",
+      "required": true,
+      "order": 9,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q009_c1",
+          "text": "TypeScript parses code and emits JavaScript"
+        },
+        {
+          "id": "q009_c2",
+          "text": "TypeScript parses CSS and emits HTML"
+        },
+        {
+          "id": "q009_c3",
+          "text": "TypeScript parses SQL and emits JSON"
+        },
+        {
+          "id": "q009_c4",
+          "text": "TypeScript only lints files without output"
+        }
+      ],
+      "correctChoiceIds": "q009_c1",
+      "explanation": "Compilation flow is parse/type-check/emit JavaScript.",
+      "prompt": "Complete the statement: TypeScript ___ your code and ___ JavaScript."
+    },
+    {
+      "id": "ts-q010",
+      "value": null,
+      "key": "what_ts_adds",
+      "label": "TS-10",
+      "title": "What TypeScript Adds",
+      "required": true,
+      "order": 10,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q010_c1",
+          "text": "Static typing"
+        },
+        {
+          "id": "q010_c2",
+          "text": "Code completion"
+        },
+        {
+          "id": "q010_c3",
+          "text": "Refactoring support"
+        },
+        {
+          "id": "q010_c4",
+          "text": "Type inference"
+        },
+        {
+          "id": "q010_c5",
+          "text": "Type checking"
+        },
+        {
+          "id": "q010_c6",
+          "text": "Shorthand notation and newer features"
+        },
+        {
+          "id": "q010_c7",
+          "text": "Native browser rendering engine"
+        }
+      ],
+      "correctChoiceIds": [
+        "q010_c1",
+        "q010_c2",
+        "q010_c3",
+        "q010_c4",
+        "q010_c5",
+        "q010_c6"
+      ],
+      "explanation": "These are direct TypeScript productivity and safety benefits.",
+      "prompt": "Select all items listed as additions TypeScript brings to JavaScript."
+    },
+    {
+      "id": "ts-q011",
+      "value": null,
+      "key": "dynamic_vs_static",
+      "label": "TS-11",
+      "title": "Typing Model",
+      "required": true,
+      "order": 11,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q011_c1",
+          "text": "JavaScript is dynamic; TypeScript is static"
+        },
+        {
+          "id": "q011_c2",
+          "text": "JavaScript is static; TypeScript is dynamic"
+        },
+        {
+          "id": "q011_c3",
+          "text": "Both are purely static"
+        },
+        {
+          "id": "q011_c4",
+          "text": "Both are purely dynamic with no checks"
+        }
+      ],
+      "correctChoiceIds": "q011_c1",
+      "explanation": "This is the core contrast highlighted in the notes.",
+      "prompt": "Which statement about JavaScript and TypeScript typing is correct?"
+    },
+    {
+      "id": "ts-q012",
+      "value": null,
+      "key": "compile_time_check",
+      "label": "TS-12",
+      "title": "Compile-Time Checking",
+      "required": true,
+      "order": 12,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q012_c1",
+          "text": "Types are checked before running the code"
+        },
+        {
+          "id": "q012_c2",
+          "text": "Types are checked only after deployment"
+        },
+        {
+          "id": "q012_c3",
+          "text": "Types are checked only in the browser console"
+        },
+        {
+          "id": "q012_c4",
+          "text": "No checks happen at all"
+        }
+      ],
+      "correctChoiceIds": "q012_c1",
+      "explanation": "TypeScript validates type consistency during compilation.",
+      "prompt": "What does compile-time type checking mean?"
+    },
+    {
+      "id": "ts-q013",
+      "value": null,
+      "key": "drawbacks",
+      "label": "TS-13",
+      "title": "TypeScript Drawbacks",
+      "required": true,
+      "order": 13,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q013_c1",
+          "text": "Requires compilation/transpilation step"
+        },
+        {
+          "id": "q013_c2",
+          "text": "Requires discipline in coding"
+        },
+        {
+          "id": "q013_c3",
+          "text": "Cannot run in Node.js"
+        },
+        {
+          "id": "q013_c4",
+          "text": "Cannot be used with JavaScript projects"
+        }
+      ],
+      "correctChoiceIds": [
+        "q013_c1",
+        "q013_c2"
+      ],
+      "explanation": "The notes list process overhead and discipline as tradeoffs.",
+      "prompt": "Select the drawbacks mentioned for TypeScript."
+    },
+    {
+      "id": "ts-q014",
+      "value": null,
+      "key": "install_command",
+      "label": "TS-14",
+      "title": "Install TypeScript",
+      "required": true,
+      "order": 14,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q014_c1",
+          "text": "npm install -g typescript"
+        },
+        {
+          "id": "q014_c2",
+          "text": "npm add typescript --runtime"
+        },
+        {
+          "id": "q014_c3",
+          "text": "node install typescript"
+        },
+        {
+          "id": "q014_c4",
+          "text": "tsc install global"
+        }
+      ],
+      "correctChoiceIds": "q014_c1",
+      "explanation": "Global installation command in the notes uses npm -g.",
+      "prompt": "Which command installs TypeScript globally?"
+    },
+    {
+      "id": "ts-q015",
+      "value": null,
+      "key": "transpile_command",
+      "label": "TS-15",
+      "title": "Transpile a File",
+      "required": true,
+      "order": 15,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q015_c1",
+          "text": "tsc filename.ts"
+        },
+        {
+          "id": "q015_c2",
+          "text": "node filename.ts"
+        },
+        {
+          "id": "q015_c3",
+          "text": "npm run filename.ts"
+        },
+        {
+          "id": "q015_c4",
+          "text": "ts-node --emit filename.ts"
+        }
+      ],
+      "correctChoiceIds": "q015_c1",
+      "explanation": "The standard compiler command is `tsc <file>`.",
+      "prompt": "How do you transpile a TypeScript file to JavaScript?"
+    },
+    {
+      "id": "ts-q016",
+      "value": null,
+      "key": "tsc_init",
+      "label": "TS-16",
+      "title": "Initialize Config",
+      "required": true,
+      "order": 16,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q016_c1",
+          "text": "tsc --init"
+        },
+        {
+          "id": "q016_c2",
+          "text": "npm init tsconfig"
+        },
+        {
+          "id": "q016_c3",
+          "text": "tsconfig --create"
+        },
+        {
+          "id": "q016_c4",
+          "text": "node --init-ts"
+        }
+      ],
+      "correctChoiceIds": "q016_c1",
+      "explanation": "This generates a default tsconfig.json file.",
+      "prompt": "Which command creates a default `tsconfig.json`?"
+    },
+    {
+      "id": "ts-q017",
+      "value": null,
+      "key": "tsconfig_location",
+      "label": "TS-17",
+      "title": "Config File Location",
+      "required": true,
+      "order": 17,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q017_c1",
+          "text": "Project root directory"
+        },
+        {
+          "id": "q017_c2",
+          "text": "Only inside src/utils"
+        },
+        {
+          "id": "q017_c3",
+          "text": "Inside node_modules/typescript"
+        },
+        {
+          "id": "q017_c4",
+          "text": "Inside dist output folder"
+        }
+      ],
+      "correctChoiceIds": "q017_c1",
+      "explanation": "The notes explicitly say to place tsconfig.json at project root.",
+      "prompt": "Where should `tsconfig.json` be created?"
+    },
+    {
+      "id": "ts-q018",
+      "value": null,
+      "key": "important_tsconfig_keys",
+      "label": "TS-18",
+      "title": "Important tsconfig Keys",
+      "required": true,
+      "order": 18,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q018_c1",
+          "text": "rootDir"
+        },
+        {
+          "id": "q018_c2",
+          "text": "outDir"
+        },
+        {
+          "id": "q018_c3",
+          "text": "removeComments"
+        },
+        {
+          "id": "q018_c4",
+          "text": "noEmitHelpers"
+        },
+        {
+          "id": "q018_c5",
+          "text": "noImplicitAny"
+        },
+        {
+          "id": "q018_c6",
+          "text": "noImplicitReturns"
+        },
+        {
+          "id": "q018_c7",
+          "text": "noUnusedParameters"
+        },
+        {
+          "id": "q018_c8",
+          "text": "noUnusedLocals"
+        },
+        {
+          "id": "q018_c9",
+          "text": "allowUnreachableCode"
+        },
+        {
+          "id": "q018_c10",
+          "text": "renderReactOnServer"
+        }
+      ],
+      "correctChoiceIds": [
+        "q018_c1",
+        "q018_c2",
+        "q018_c3",
+        "q018_c4",
+        "q018_c5",
+        "q018_c6",
+        "q018_c7",
+        "q018_c8",
+        "q018_c9"
+      ],
+      "explanation": "These are the exact key configs listed in the markdown.",
+      "prompt": "Select all configuration keys listed as important in the notes."
+    },
+    {
+      "id": "ts-q019",
+      "value": null,
+      "key": "remove_comments",
+      "label": "TS-19",
+      "title": "removeComments",
+      "required": true,
+      "order": 19,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q019_c1",
+          "text": "Removes comments from emitted JavaScript"
+        },
+        {
+          "id": "q019_c2",
+          "text": "Removes comments from markdown files"
+        },
+        {
+          "id": "q019_c3",
+          "text": "Removes all code blocks before build"
+        },
+        {
+          "id": "q019_c4",
+          "text": "Removes git commit messages"
+        }
+      ],
+      "correctChoiceIds": "q019_c1",
+      "explanation": "This option controls comment emission in compiled JS output.",
+      "prompt": "What does `removeComments: true` do?"
+    },
+    {
+      "id": "ts-q020",
+      "value": null,
+      "key": "no_implicit_any",
+      "label": "TS-20",
+      "title": "noImplicitAny",
+      "required": true,
+      "order": 20,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q020_c1",
+          "text": "Prevents silently inferred `any` types"
+        },
+        {
+          "id": "q020_c2",
+          "text": "Allows more implicit any values"
+        },
+        {
+          "id": "q020_c3",
+          "text": "Disables all type checks"
+        },
+        {
+          "id": "q020_c4",
+          "text": "Forces runtime validation only"
+        }
+      ],
+      "correctChoiceIds": "q020_c1",
+      "explanation": "It raises errors when a value would be implicitly typed as any.",
+      "prompt": "What is the purpose of `noImplicitAny: true`?"
+    },
+    {
+      "id": "ts-q021",
+      "value": null,
+      "key": "unused_checks",
+      "label": "TS-21",
+      "title": "Unused Code Checks",
+      "required": true,
+      "order": 21,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q021_c1",
+          "text": "Flags unused parameters and locals"
+        },
+        {
+          "id": "q021_c2",
+          "text": "Deletes unused files automatically"
+        },
+        {
+          "id": "q021_c3",
+          "text": "Minifies variables in production only"
+        },
+        {
+          "id": "q021_c4",
+          "text": "Only affects comments"
+        }
+      ],
+      "correctChoiceIds": "q021_c1",
+      "explanation": "These options help keep code clean by catching unused declarations.",
+      "prompt": "What do `noUnusedParameters` and `noUnusedLocals` enforce?"
+    },
+    {
+      "id": "ts-q022",
+      "value": null,
+      "key": "allow_unreachable_false",
+      "label": "TS-22",
+      "title": "Unreachable Code Rule",
+      "required": true,
+      "order": 22,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q022_c1",
+          "text": "Disallows unreachable code when set to false"
+        },
+        {
+          "id": "q022_c2",
+          "text": "Allows all unreachable code"
+        },
+        {
+          "id": "q022_c3",
+          "text": "Skips transpilation"
+        },
+        {
+          "id": "q022_c4",
+          "text": "Enables dead code execution at runtime"
+        }
+      ],
+      "correctChoiceIds": "q022_c1",
+      "explanation": "Setting `allowUnreachableCode` to false enforces stricter control flow.",
+      "prompt": "What is the effect of `allowUnreachableCode: false`?"
+    },
+    {
+      "id": "ts-q023",
+      "value": null,
+      "key": "debugging_flow",
+      "label": "TS-23",
+      "title": "VS Code Debugging",
+      "required": true,
+      "order": 23,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q023_c1",
+          "text": "Add a breakpoint, open Debug panel, create launch.json, select Node.js"
+        },
+        {
+          "id": "q023_c2",
+          "text": "Only run npm install to debug"
+        },
+        {
+          "id": "q023_c3",
+          "text": "Delete tsconfig and restart editor"
+        },
+        {
+          "id": "q023_c4",
+          "text": "Use browser-only breakpoints for Node apps"
+        }
+      ],
+      "correctChoiceIds": "q023_c1",
+      "explanation": "This sequence matches the debugging instructions exactly.",
+      "prompt": "Which workflow is described for debugging in VS Code?"
+    },
+    {
+      "id": "ts-q024",
+      "value": null,
+      "key": "launch_config_type_request",
+      "label": "TS-24",
+      "title": "Launch Config Basics",
+      "required": true,
+      "order": 24,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q024_c1",
+          "text": "type: node"
+        },
+        {
+          "id": "q024_c2",
+          "text": "request: launch"
+        },
+        {
+          "id": "q024_c3",
+          "text": "type: chrome"
+        },
+        {
+          "id": "q024_c4",
+          "text": "request: attach-only-remote"
+        }
+      ],
+      "correctChoiceIds": [
+        "q024_c1",
+        "q024_c2"
+      ],
+      "explanation": "The provided launch config uses node launch mode.",
+      "prompt": "Select the correct `launch.json` values shown in the notes."
+    },
+    {
+      "id": "ts-q025",
+      "value": null,
+      "key": "launch_prelaunchtask",
+      "label": "TS-25",
+      "title": "Build Before Debug",
+      "required": true,
+      "order": 25,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q025_c1",
+          "text": "tsc: build - tsconfig.json"
+        },
+        {
+          "id": "q025_c2",
+          "text": "npm: lint all"
+        },
+        {
+          "id": "q025_c3",
+          "text": "node: run dist/index.js"
+        },
+        {
+          "id": "q025_c4",
+          "text": "ts-node: watch"
+        }
+      ],
+      "correctChoiceIds": "q025_c1",
+      "explanation": "That exact value appears in `preLaunchTask`.",
+      "prompt": "What `preLaunchTask` value is used in the launch configuration?"
+    },
+    {
+      "id": "ts-q026",
+      "value": null,
+      "key": "js_builtin_types",
+      "label": "TS-26",
+      "title": "JavaScript Built-in Types",
+      "required": true,
+      "order": 26,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q026_c1",
+          "text": "number"
+        },
+        {
+          "id": "q026_c2",
+          "text": "string"
+        },
+        {
+          "id": "q026_c3",
+          "text": "boolean"
+        },
+        {
+          "id": "q026_c4",
+          "text": "null"
+        },
+        {
+          "id": "q026_c5",
+          "text": "undefined"
+        },
+        {
+          "id": "q026_c6",
+          "text": "object"
+        },
+        {
+          "id": "q026_c7",
+          "text": "enum"
+        }
+      ],
+      "correctChoiceIds": [
+        "q026_c1",
+        "q026_c2",
+        "q026_c3",
+        "q026_c4",
+        "q026_c5",
+        "q026_c6"
+      ],
+      "explanation": "These six were listed as JavaScript built-in types in the markdown.",
+      "prompt": "Select all JavaScript built-in types listed in the lesson."
+    },
+    {
+      "id": "ts-q027",
+      "value": null,
+      "key": "ts_extended_types",
+      "label": "TS-27",
+      "title": "TypeScript Extended Types",
+      "required": true,
+      "order": 27,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q027_c1",
+          "text": "any"
+        },
+        {
+          "id": "q027_c2",
+          "text": "unknown"
+        },
+        {
+          "id": "q027_c3",
+          "text": "never"
+        },
+        {
+          "id": "q027_c4",
+          "text": "enum"
+        },
+        {
+          "id": "q027_c5",
+          "text": "tuple"
+        },
+        {
+          "id": "q027_c6",
+          "text": "BigInt"
+        },
+        {
+          "id": "q027_c7",
+          "text": "Symbol"
+        },
+        {
+          "id": "q027_c8",
+          "text": "interface-only runtime type"
+        }
+      ],
+      "correctChoiceIds": [
+        "q027_c1",
+        "q027_c2",
+        "q027_c3",
+        "q027_c4",
+        "q027_c5",
+        "q027_c6",
+        "q027_c7"
+      ],
+      "explanation": "These are the TypeScript-extended types listed in the lesson.",
+      "prompt": "Select all TypeScript extended types from the notes."
+    },
+    {
+      "id": "ts-q028",
+      "value": null,
+      "key": "explicit_typing",
+      "label": "TS-28",
+      "title": "Explicit Typing",
+      "required": true,
+      "order": 28,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q028_c1",
+          "text": "You explicitly declare a variable's type"
+        },
+        {
+          "id": "q028_c2",
+          "text": "TypeScript always ignores declared types"
+        },
+        {
+          "id": "q028_c3",
+          "text": "Types are assigned only at runtime"
+        },
+        {
+          "id": "q028_c4",
+          "text": "No type declaration is allowed"
+        }
+      ],
+      "correctChoiceIds": "q028_c1",
+      "explanation": "Explicit typing means writing type annotations yourself.",
+      "prompt": "What does explicit typing mean in TypeScript?"
+    },
+    {
+      "id": "ts-q029",
+      "value": null,
+      "key": "type_inference",
+      "label": "TS-29",
+      "title": "Type Inference",
+      "required": true,
+      "order": 29,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q029_c1",
+          "text": "TypeScript infers types from assigned values"
+        },
+        {
+          "id": "q029_c2",
+          "text": "TypeScript disables types automatically"
+        },
+        {
+          "id": "q029_c3",
+          "text": "Type inference works only for functions"
+        },
+        {
+          "id": "q029_c4",
+          "text": "Type inference requires Babel plugins"
+        }
+      ],
+      "correctChoiceIds": "q029_c1",
+      "explanation": "Inference reduces manual annotations in many cases.",
+      "prompt": "What is type inference in TypeScript?"
+    },
+    {
+      "id": "ts-q030",
+      "value": null,
+      "key": "tuple_definition",
+      "label": "TS-30",
+      "title": "Tuple Concept",
+      "required": true,
+      "order": 30,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q030_c1",
+          "text": "A typed array with predefined length and index types"
+        },
+        {
+          "id": "q030_c2",
+          "text": "A dynamic object with unknown keys"
+        },
+        {
+          "id": "q030_c3",
+          "text": "A function that returns two values only"
+        },
+        {
+          "id": "q030_c4",
+          "text": "An enum with numeric members"
+        }
+      ],
+      "correctChoiceIds": "q030_c1",
+      "explanation": "Tuples are fixed-position, fixed-type arrays.",
+      "prompt": "Which statement best describes a TypeScript tuple?"
+    },
+    {
+      "id": "ts-q031",
+      "value": null,
+      "key": "tuple_caveat_push",
+      "label": "TS-31",
+      "title": "Tuple Safety Caveat",
+      "required": true,
+      "order": 31,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q031_c1",
+          "text": "Indexes 3+ may lose strict tuple safety when pushing new values"
+        },
+        {
+          "id": "q031_c2",
+          "text": "Tuples can never be mutated"
+        },
+        {
+          "id": "q031_c3",
+          "text": "Tuples always reject push at compile time in all cases"
+        },
+        {
+          "id": "q031_c4",
+          "text": "Tuple values must all be strings"
+        }
+      ],
+      "correctChoiceIds": "q031_c1",
+      "explanation": "The notes highlight this practical tuple limitation.",
+      "prompt": "What caution is shown in the tuple example?"
+    },
+    {
+      "id": "ts-q032",
+      "value": null,
+      "key": "enum_definition",
+      "label": "TS-32",
+      "title": "Enum Meaning",
+      "required": true,
+      "order": 32,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q032_c1",
+          "text": "An enum is a list of related constants"
+        },
+        {
+          "id": "q032_c2",
+          "text": "An enum is a runtime array method"
+        },
+        {
+          "id": "q032_c3",
+          "text": "An enum is a TypeScript package manager"
+        },
+        {
+          "id": "q032_c4",
+          "text": "An enum is a markdown syntax feature"
+        }
+      ],
+      "correctChoiceIds": "q032_c1",
+      "explanation": "Enums group named constant values.",
+      "prompt": "What is an enum in TypeScript?"
+    },
+    {
+      "id": "ts-q033",
+      "value": null,
+      "key": "const_enum_optimization",
+      "label": "TS-33",
+      "title": "const enum Benefit",
+      "required": true,
+      "order": 33,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q033_c1",
+          "text": "Compiler can generate more optimized code"
+        },
+        {
+          "id": "q033_c2",
+          "text": "It enables dynamic enum members at runtime"
+        },
+        {
+          "id": "q033_c3",
+          "text": "It disables transpilation"
+        },
+        {
+          "id": "q033_c4",
+          "text": "It replaces tsconfig.json"
+        }
+      ],
+      "correctChoiceIds": "q033_c1",
+      "explanation": "The lesson states const enums help optimization.",
+      "prompt": "Why might you use `const enum`?"
+    },
+    {
+      "id": "ts-q034",
+      "value": null,
+      "key": "enum_naming",
+      "label": "TS-34",
+      "title": "Enum Naming Style",
+      "required": true,
+      "order": 34,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q034_c1",
+          "text": "PascalCase"
+        },
+        {
+          "id": "q034_c2",
+          "text": "snake_case"
+        },
+        {
+          "id": "q034_c3",
+          "text": "kebab-case"
+        },
+        {
+          "id": "q034_c4",
+          "text": "UPPER_SNAKE_CASE only"
+        }
+      ],
+      "correctChoiceIds": "q034_c1",
+      "explanation": "The enum example explicitly notes PascalCase.",
+      "prompt": "What naming convention is shown for enums?"
+    },
+    {
+      "id": "ts-q035",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-35",
+      "title": "Basic Type Concept",
+      "require": false,
+      "order": 35,
+      "type": "single",
+      "controlType": "unknown",
       "prompt": "What does the TypeScript `unknown` type require before usage?",
       "choices": [
-        { "id": "a", "text": "It can be used anywhere without checks" },
-        { "id": "b", "text": "A type assertion or narrowing step" },
-        { "id": "c", "text": "A decorator" },
-        { "id": "d", "text": "A generic constraint" }
+        {
+          "id": "a",
+          "text": "It can be used anywhere without checks"
+        },
+        {
+          "id": "b",
+          "text": "A type assertion or narrowing step"
+        },
+        {
+          "id": "c",
+          "text": "A decorator"
+        },
+        {
+          "id": "d",
+          "text": "A generic constraint"
+        }
       ],
-      "correctChoiceIds": ["b"],
+      "correctChoiceIds": "b",
       "explanation": "Values typed as `unknown` must be narrowed or asserted before property access or assignment."
     },
     {
-      "id": "ts-q2",
+      "id": "ts-q036",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-36",
+      "title": "Basic Typescript Concept",
+      "require": false,
+      "order": 36,
       "type": "single",
+      "controlType": "unknown",
       "prompt": "Which compiler option enables strict null checking?",
       "choices": [
-        { "id": "a", "text": "`noImplicitAny`" },
-        { "id": "b", "text": "`skipLibCheck`" },
-        { "id": "c", "text": "`strictNullChecks`" },
-        { "id": "d", "text": "`preserveConstEnums`" }
+        {
+          "id": "a",
+          "text": "`noImplicitAny`"
+        },
+        {
+          "id": "b",
+          "text": "`skipLibCheck`"
+        },
+        {
+          "id": "c",
+          "text": "`strictNullChecks`"
+        },
+        {
+          "id": "d",
+          "text": "`preserveConstEnums`"
+        }
       ],
-      "correctChoiceIds": ["c"],
+      "correctChoiceIds": "c",
       "explanation": "`strictNullChecks` makes `null` and `undefined` distinct types unless explicitly included."
     },
     {
-      "id": "ts-q3",
+      "id": "ts-q037",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-37",
+      "title": "Basic Typescript Concept",
+      "require": false,
+      "order": 37,
       "type": "single",
+      "controlType": "unknown",
       "prompt": "What does `readonly` do on a TypeScript interface property?",
       "choices": [
-        { "id": "a", "text": "Makes the property private" },
-        { "id": "b", "text": "Allows assignment only in constructors" },
-        { "id": "c", "text": "Prevents reassignment after initialization" },
-        { "id": "d", "text": "Removes the property from emitted JavaScript" }
+        {
+          "id": "a",
+          "text": "Makes the property private"
+        },
+        {
+          "id": "b",
+          "text": "Allows assignment only in constructors"
+        },
+        {
+          "id": "c",
+          "text": "Prevents reassignment after initialization"
+        },
+        {
+          "id": "d",
+          "text": "Removes the property from emitted JavaScript"
+        }
       ],
-      "correctChoiceIds": ["c"],
+      "correctChoiceIds": "c",
       "explanation": "`readonly` prevents assignment after initialization at compile time."
     },
     {
-      "id": "ts-q4",
+      "id": "ts-q038",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-38",
+      "title": "Basic Type Concept",
+      "required": true,
+      "order": 38,
       "type": "single",
+      "controlType": "unknown",
       "prompt": "Which utility type makes all properties optional?",
       "choices": [
-        { "id": "a", "text": "`Required<T>`" },
-        { "id": "b", "text": "`Readonly<T>`" },
-        { "id": "c", "text": "`Pick<T, K>`" },
-        { "id": "d", "text": "`Partial<T>`" }
+        {
+          "id": "a",
+          "text": "`Required<T>`"
+        },
+        {
+          "id": "b",
+          "text": "`Readonly<T>`"
+        },
+        {
+          "id": "c",
+          "text": "`Pick<T, K>`"
+        },
+        {
+          "id": "d",
+          "text": "`Partial<T>`"
+        }
       ],
-      "correctChoiceIds": ["d"],
+      "correctChoiceIds": "d",
       "explanation": "`Partial<T>` maps every property in `T` to optional."
     },
     {
-      "id": "ts-q5",
+      "id": "ts-q039",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-39",
+      "title": "Basic Type Concept",
+      "required": true,
+      "order": 39,
       "type": "single",
+      "controlType": "unknown",
       "prompt": "What is the inferred type of `[1, 2, 3] as const`?",
       "choices": [
-        { "id": "a", "text": "number[]" },
-        { "id": "b", "text": "readonly [1, 2, 3]" },
-        { "id": "c", "text": "readonly number[]" },
-        { "id": "d", "text": "[number, number, number]" }
+        {
+          "id": "a",
+          "text": "number[]"
+        },
+        {
+          "id": "b",
+          "text": "readonly [1, 2, 3]"
+        },
+        {
+          "id": "c",
+          "text": "readonly number[]"
+        },
+        {
+          "id": "d",
+          "text": "[number, number, number]"
+        }
       ],
-      "correctChoiceIds": ["b"],
+      "correctChoiceIds": "b",
       "explanation": "`as const` freezes literal types and tuple readonlyness."
     }
   ]

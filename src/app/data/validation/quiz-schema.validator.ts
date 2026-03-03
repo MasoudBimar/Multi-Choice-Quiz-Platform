@@ -97,12 +97,12 @@ export function validateQuizCatalog(value: unknown): ValidationResult<QuizCatalo
   return { ok: true, value: { quizzes: parsed } };
 }
 
-function validateQuestion(value: unknown, index: number): ValidationResult<QuizQuestion> {
-  if (!isRecord(value)) {
+function validateQuestion(valueData: unknown, index: number): ValidationResult<QuizQuestion> {
+  if (!isRecord(valueData)) {
     return { ok: false, error: `Question at index ${index} must be an object.` };
   }
 
-  const { id, type, prompt, choices, correctChoiceIds, explanation } = value;
+  const { id, type, prompt, choices, correctChoiceIds, explanation, key, label, title, controlType } = valueData;
 
   if (!isNonEmptyString(id) || !isQuestionType(type) || !isNonEmptyString(prompt)) {
     return { ok: false, error: `Question at index ${index} is missing id, type, or prompt.` };
@@ -125,18 +125,24 @@ function validateQuestion(value: unknown, index: number): ValidationResult<QuizQ
     return { ok: false, error: `Question '${id}' contains duplicate choice ids.` };
   }
 
-  if (!Array.isArray(correctChoiceIds) || correctChoiceIds.length === 0) {
-    return { ok: false, error: `Question '${id}' must include correctChoiceIds.` };
+  if (correctChoiceIds === undefined || (typeof correctChoiceIds !== 'string' && !Array.isArray(correctChoiceIds))) {
+    return { ok: false, error: `Question '${id}' has an invalid correctChoiceIds.` };
   }
 
-  if (!correctChoiceIds.every((choiceId) => typeof choiceId === 'string' && choiceIds.includes(choiceId))) {
-    return {
-      ok: false,
-      error: `Question '${id}' has correctChoiceIds that do not match available choices.`,
-    };
+  if (type === 'multi') {
+    if ((!Array.isArray(correctChoiceIds) || correctChoiceIds.length === 0)) {
+      return { ok: false, error: `Question '${id}' must include correctChoiceIds.` };
+    }
+
+    if (!correctChoiceIds.every((choiceId) => typeof choiceId === 'string' && choiceIds.includes(choiceId))) {
+      return {
+        ok: false,
+        error: `Question '${id}' has correctChoiceIds that do not match available choices.`,
+      };
+    }
   }
 
-  if (type === 'single' && correctChoiceIds.length !== 1) {
+  if (type === 'single' && (typeof correctChoiceIds !== 'string')) {
     return { ok: false, error: `Question '${id}' is single-choice and must have exactly one correct answer.` };
   }
 
@@ -144,14 +150,36 @@ function validateQuestion(value: unknown, index: number): ValidationResult<QuizQ
     return { ok: false, error: `Question '${id}' has an invalid explanation.` };
   }
 
+  if (key === undefined || key === null || typeof key !== 'string') {
+    return { ok: false, error: `Question '${id}' has an invalid key.` };
+  }
+
+  if (label === undefined || label === null || typeof label !== 'string') {
+    return { ok: false, error: `Question '${id}' has an invalid label.` };
+  }
+
+  if (title === undefined || title === null || typeof title !== 'string') {
+    return { ok: false, error: `Question '${id}' has an invalid title.` };
+  }
+
+  if (controlType === undefined || controlType === null || typeof controlType !== 'string' || (controlType !== 'textbox' && controlType !== 'unknown')) {
+    return { ok: false, error: `Question '${id}' has an invalid controlType.` };
+  }
+
+
+
   return {
     ok: true,
     value: {
       id,
       type,
       prompt,
+      key,
+      label,
+      title,
+      controlType,
       choices: parsedChoices,
-      correctChoiceIds: [...correctChoiceIds],
+      correctChoiceIds: correctChoiceIds,
       explanation,
     },
   };

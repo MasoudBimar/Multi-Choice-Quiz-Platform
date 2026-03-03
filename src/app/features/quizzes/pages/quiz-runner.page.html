@@ -21,34 +21,62 @@
 
     <mat-card class="question-card p-5 sm:p-6">
       <div class="space-y-4">
-        <p class="text-xs uppercase tracking-[0.16em] opacity-70">Question {{ questionProgressLabel() }}</p>
+        <p class="text-xs uppercase tracking-[0.16em] opacity-70">
+          Question {{ questionProgressLabel() }}
+        </p>
         <h2 class="text-xl font-semibold leading-8">{{ question.prompt }}</h2>
 
-        <mat-radio-group
-          class="answer-group"
-          [value]="selectedChoiceId()"
-          (change)="onAnswer($event.value)"
-          [attr.aria-label]="'Answer options for question ' + questionProgressLabel()"
-        >
-          @for (choice of attemptStore.presentedChoices(); track choice.id) {
-            <mat-radio-button
-              class="answer-option"
-              [value]="choice.id"
-              [attr.aria-label]="choice.text"
-            >
-              {{ choice.text }}
-            </mat-radio-button>
-          }
-        </mat-radio-group>
+        @if (question.type === 'single') {
+          <mat-radio-group
+            class="answer-group"
+            [class.two-col]="attemptStore.presentedChoices().length > 4"
+            [value]="selectedChoiceId()"
+            (change)="onAnswer($event.value)"
+            [attr.aria-label]="'Answer options for question ' + questionProgressLabel()"
+          >
+            @for (choice of attemptStore.presentedChoices(); track choice.id) {
+              <mat-radio-button
+                class="answer-option"
+                [value]="choice.id"
+                [attr.aria-label]="choice.text"
+              >
+                {{ choice.text }}
+              </mat-radio-button>
+            }
+          </mat-radio-group>
+        } @else {
+          <section
+            class="answer-group"
+            [class.two-col]="attemptStore.presentedChoices().length > 4"
+          >
+            @for (choice of attemptStore.presentedChoices(); track choice.id) {
+              <mat-checkbox
+                class="answer-option"
+                [value]="choice.id"
+                [attr.aria-label]="choice.text"
+              >
+                {{ choice.text }}
+              </mat-checkbox>
+            }
+          </section>
+        }
       </div>
     </mat-card>
 
     <div class="flex flex-wrap justify-between gap-3">
       <div class="flex gap-3">
-        <button mat-stroked-button (click)="attemptStore.goPrev()" [disabled]="!attemptStore.canGoPrev()">
+        <button
+          mat-stroked-button
+          (click)="attemptStore.goPrev()"
+          [disabled]="!attemptStore.canGoPrev()"
+        >
           Previous
         </button>
-        <button mat-stroked-button (click)="attemptStore.goNext()" [disabled]="!attemptStore.canGoNext()">
+        <button
+          mat-stroked-button
+          (click)="attemptStore.goNext()"
+          [disabled]="!attemptStore.canGoNext()"
+        >
           Next
         </button>
       </div>
@@ -60,7 +88,9 @@
     </div>
 
     @if (attemptStore.error()) {
-      <p class="rounded-md bg-[var(--mat-sys-error-container)] px-3 py-2 text-sm text-[var(--mat-sys-on-error-container)]">
+      <p
+        class="rounded-md bg-[var(--mat-sys-error-container)] px-3 py-2 text-sm text-[var(--mat-sys-on-error-container)]"
+      >
         {{ attemptStore.error() }}
       </p>
     }

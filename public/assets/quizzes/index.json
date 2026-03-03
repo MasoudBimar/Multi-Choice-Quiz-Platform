@@ -47,7 +47,7 @@
       "shuffleQuestions": true,
       "shuffleAnswers": true,
       "timeLimitSeconds": 600,
-      "quizzBackgroundColor": "linear-gradient(135deg, #4A3B00 0%, #B08900 45%, #F7DF1E 120%)"
+      "quizzBackgroundColor": "radial-gradient( circle 293px at 8.3% 20.7%,  rgba(255,128,8,1) 0%, rgba(255,200,55,1) 90% )"
     },
     {
       "id": "rxjs-basics",
@@ -67,7 +67,7 @@
       "shuffleQuestions": true,
       "shuffleAnswers": true,
       "timeLimitSeconds": 600,
-      "quizzBackgroundColor": "linear-gradient(135deg, #F05032 0%, #FF6A3D 45%, #7A2A1B 100%)"
+      "quizzBackgroundColor": "linear-gradient( 109.6deg,  rgba(179,9,23,1) 11.2%, rgba(226,181,49,1) 91.1% )"
     },
     {
       "id": "ngrx-basics",

@@ -1,24 +1,34 @@
 .question-card {
   border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 45%, transparent);
   background:
-    radial-gradient(
-      1200px 220px at 80% -10%,
+    radial-gradient(1200px 220px at 80% -10%,
       color-mix(in srgb, var(--mat-sys-tertiary-container) 24%, transparent),
-      transparent
-    ),
+      transparent),
     color-mix(in srgb, var(--mat-sys-surface-container-lowest) 92%, transparent);
 }
 
 .answer-group {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
 .answer-option {
-  width: 100%;
   border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 40%, transparent);
   border-radius: 0.75rem;
   padding: 0.75rem 0.95rem;
   background-color: color-mix(in srgb, var(--mat-sys-surface-container-low) 85%, transparent);
+  width: auto;
+  inline-size: auto;
+  max-inline-size: 36rem;
+}
+
+.answer-group.two-col {
+  block-size: 20rem;
+}
+
+.answer-group.two-col .answer-option {
+  inline-size: 18rem;
+  max-inline-size: none;
 }
