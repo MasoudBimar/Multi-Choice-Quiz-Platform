@@ -1,6 +1,8 @@
 # Quiz Forge (Angular 21 MCQ Platform)
 
-A production-style MCQ quiz platform built with Angular 21 standalone APIs, Angular Signals, @ngrx/signals SignalStore, Angular Material 3 theming, and Tailwind utilities.
+Multi Choice Quiz Platform: A scalable, modular web application for creating, managing, and taking multiple-choice quizzes, built with modern frontend architecture and best practices.
+
+A MCQs platform built with Angular 21 standalone APIs, Angular Signals, @ngrx/signals SignalStore, Angular Material 3 theming, and Tailwind utilities.
 
 ## Stack
 
