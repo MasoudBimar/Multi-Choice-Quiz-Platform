@@ -9,7 +9,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "MCGs": {
+    "MCQs": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -60,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MCGs:build:production"
+              "buildTarget": "MCQs:build:production"
             },
             "development": {
-              "buildTarget": "MCGs:build:development"
+              "buildTarget": "MCQs:build:development"
             }
           },
           "defaultConfiguration": "development"
