@@ -1352,6 +1352,166 @@
       ],
       "correctChoiceIds": "b",
       "explanation": "`as const` freezes literal types and tuple readonlyness."
+    },
+    {
+      "id": "ts-q040",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-40",
+      "title": "TypeScript Fundamentals",
+      "required": true,
+      "order": 40,
+      "type": "single",
+      "controlType": "unknown",
+      "prompt": "Which statement best describes the relationship between TypeScript and JavaScript?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "All TypeScript programs are valid JavaScript programs"
+        },
+        {
+          "id": "b",
+          "text": "TypeScript and JavaScript have completely different syntax"
+        },
+        {
+          "id": "c",
+          "text": "All JavaScript programs are syntactically valid TypeScript programs, but not all TypeScript programs are valid JavaScript programs"
+        },
+        {
+          "id": "d",
+          "text": "JavaScript is a superset of TypeScript"
+        }
+      ],
+      "correctChoiceIds": "c",
+      "explanation": "TypeScript is a superset of JavaScript, so JavaScript syntax is accepted by TypeScript."
+    },
+    {
+      "id": "ts-q041",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-41",
+      "title": "TypeScript Fundamentals",
+      "required": true,
+      "order": 41,
+      "type": "single",
+      "controlType": "unknown",
+      "prompt": "What is the main purpose of TypeScript's static type system?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "To replace JavaScript at runtime"
+        },
+        {
+          "id": "b",
+          "text": "To model JavaScript runtime behavior and catch code that may fail at runtime"
+        },
+        {
+          "id": "c",
+          "text": "To make all programs run faster in the browser"
+        },
+        {
+          "id": "d",
+          "text": "To remove the need for testing"
+        }
+      ],
+      "correctChoiceIds": "b",
+      "explanation": "TypeScript's type system aims to reflect JavaScript behavior and flag likely runtime errors before execution."
+    },
+    {
+      "id": "ts-q042",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-42",
+      "title": "TypeScript Fundamentals",
+      "required": true,
+      "order": 42,
+      "type": "single",
+      "controlType": "unknown",
+      "prompt": "Can a TypeScript program that passes the type checker still throw an error at runtime?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "No, passing the type checker guarantees runtime safety"
+        },
+        {
+          "id": "b",
+          "text": "Yes, because the type checker cannot catch every possible runtime problem"
+        },
+        {
+          "id": "c",
+          "text": "No, unless the code uses `any`"
+        },
+        {
+          "id": "d",
+          "text": "Yes, but only in Node.js"
+        }
+      ],
+      "correctChoiceIds": "b",
+      "explanation": "TypeScript improves safety, but it does not guarantee that runtime exceptions can never happen."
+    },
+    {
+      "id": "ts-q043",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-43",
+      "title": "TypeScript Fundamentals",
+      "required": true,
+      "order": 43,
+      "type": "single",
+      "controlType": "unknown",
+      "prompt": "Which of these is an example of a legal JavaScript construct that TypeScript often disallows?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Declaring a variable with `let`"
+        },
+        {
+          "id": "b",
+          "text": "Using an object literal"
+        },
+        {
+          "id": "c",
+          "text": "Calling a function with the wrong number of arguments"
+        },
+        {
+          "id": "d",
+          "text": "Writing an `if` statement"
+        }
+      ],
+      "correctChoiceIds": "c",
+      "explanation": "TypeScript rejects some questionable JavaScript patterns, including argument-count mismatches."
+    },
+    {
+      "id": "ts-q044",
+      "value": null,
+      "key": "ts_definition",
+      "label": "TS-44",
+      "title": "TypeScript Fundamentals",
+      "required": true,
+      "order": 44,
+      "type": "single",
+      "controlType": "unknown",
+      "prompt": "Why are type annotations useful in TypeScript?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "They tell TypeScript your intent and help distinguish correct from incorrect code"
+        },
+        {
+          "id": "b",
+          "text": "They are required for every variable in every file"
+        },
+        {
+          "id": "c",
+          "text": "They make JavaScript code execute without compilation"
+        },
+        {
+          "id": "d",
+          "text": "They prevent all syntax errors automatically"
+        }
+      ],
+      "correctChoiceIds": "a",
+      "explanation": "Type annotations communicate intent to the type checker, which improves correctness checks."
     }
   ]
 }
