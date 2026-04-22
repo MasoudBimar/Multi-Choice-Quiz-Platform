@@ -5,15 +5,35 @@
   "questions": [
     {
       "id": "js-q1",
+      "key": "jsb_definition",
+      "label": "JSB-01",
+      "title": "Javascript Basic Definition",
+      "required": true,
+      "order": 2,
       "type": "single",
+      "controlType": "textbox",
       "prompt": "What does the TypeScript `unknown` type require before usage?",
       "choices": [
-        { "id": "a", "text": "It can be used anywhere without checks" },
-        { "id": "b", "text": "A type assertion or narrowing step" },
-        { "id": "c", "text": "A decorator" },
-        { "id": "d", "text": "A generic constraint" }
+        {
+          "id": "a",
+          "text": "It can be used anywhere without checks"
+        },
+        {
+          "id": "b",
+          "text": "A type assertion or narrowing step"
+        },
+        {
+          "id": "c",
+          "text": "A decorator"
+        },
+        {
+          "id": "d",
+          "text": "A generic constraint"
+        }
       ],
-      "correctChoiceIds": ["b"],
+      "correctChoiceIds": [
+        "b"
+      ],
       "explanation": "Values typed as `unknown` must be narrowed or asserted before property access or assignment."
     }
   ]

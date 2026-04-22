@@ -5,7 +5,13 @@
   "questions": [
     {
       "id": "ngrx-q1",
+      "key": "ngrx_definition",
+      "label": "NGRX-01",
+      "title": "Reactive State for Angular Definition",
+      "required": true,
+      "order": 2,
       "type": "single",
+      "controlType": "textbox",
       "prompt": "What does `computed()` provide in Angular Signals?",
       "choices": [
         {

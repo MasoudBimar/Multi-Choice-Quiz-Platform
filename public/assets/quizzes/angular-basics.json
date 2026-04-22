@@ -5,7 +5,14 @@
   "questions": [
     {
       "id": "ngb-q1",
+      "value": null,
+      "key": "ngb_definition",
+      "label": "NG-01",
+      "title": "Angular Basic Definition",
+      "required": true,
+      "order": 1,
       "type": "single",
+      "controlType": "textbox",
       "prompt": "What does `computed()` provide in Angular Signals?",
       "choices": [
         {

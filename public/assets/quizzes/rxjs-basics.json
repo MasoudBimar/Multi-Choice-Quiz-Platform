@@ -5,7 +5,13 @@
   "questions": [
     {
       "id": "rxjs-q1",
+      "key": "rxjs_definition",
+      "label": "RXJS-01",
+      "title": "Reactive extension Definition",
+      "required": true,
+      "order": 1,
       "type": "single",
+      "controlType": "textbox",
       "prompt": "What does `computed()` provide in Angular Signals?",
       "choices": [
         {

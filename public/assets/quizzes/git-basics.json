@@ -5,7 +5,13 @@
   "questions": [
     {
       "id": "git-q1",
+      "key": "git_definition",
+      "label": "GIT-01",
+      "title": "Source Version Control Definition",
+      "required": true,
+      "order": 2,
       "type": "single",
+      "controlType": "textbox",
       "prompt": "What does `computed()` provide in Angular Signals?",
       "choices": [
         {
