@@ -38,7 +38,7 @@ export class QuizQuestion {
   type: QuizQuestionType;
   controlType: QuizControlType;
   choices: QuestionChoice[];
-  correctChoiceIds: string | string[];
+  correctChoiceIds: string[];
   explanation?: string;
   prompt: string;
   constructor(
@@ -50,7 +50,7 @@ export class QuizQuestion {
       type?: QuizQuestionType;
       controlType?: QuizControlType;
       choices?: QuestionChoice[];
-      correctChoiceIds?: string | string[];
+      correctChoiceIds?: string[];
       explanation?: string;
       prompt?: string;
     } = {},

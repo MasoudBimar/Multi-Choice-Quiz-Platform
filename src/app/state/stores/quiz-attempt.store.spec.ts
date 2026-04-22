@@ -92,8 +92,12 @@ const definition: QuizDefinition = {
   questions: [
     {
       id: 'q1',
+      key: 'key1',
+      label: 'label1',
+      title: 'title1',
       type: 'single',
       prompt: 'Question 1',
+      controlType: 'textbox',
       choices: [
         { id: 'a', text: 'A' },
         { id: 'b', text: 'B' },
@@ -102,8 +106,12 @@ const definition: QuizDefinition = {
     },
     {
       id: 'q2',
+      key: 'key2',
+      label: 'label2',
+      title: 'title2',
       type: 'single',
       prompt: 'Question 2',
+      controlType: 'textbox',
       choices: [
         { id: 'c', text: 'C' },
         { id: 'd', text: 'D' },

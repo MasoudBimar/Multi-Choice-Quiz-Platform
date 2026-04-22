@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, untracked } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { QuizAttemptStore } from '../../../state/stores/quiz-attempt.store';
@@ -23,7 +23,9 @@ export class QuizShellComponent {
         return;
       }
       if (resolved satisfies QuizResolvedData) {
-        this.attemptStore.setQuizContext(resolved.entry, resolved.definition);
+        untracked(() => {
+          this.attemptStore.setQuizContext(resolved.entry, resolved.definition);
+        })
       } else {
         throw new Error("raise error on wrong data schema")
       }

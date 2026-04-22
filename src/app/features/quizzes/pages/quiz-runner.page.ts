@@ -1,25 +1,23 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
+import { MatCard } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatDividerModule } from '@angular/material/divider';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { QuizAttemptStore } from '../../../state/stores/quiz-attempt.store';
 import { QuizResolvedData } from '../../../state/tokens/quiz-route-data';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-quiz-runner-page',
   standalone: true,
   imports: [
     RouterLink,
-    MatButtonModule,
-    MatCardModule,
+    MatButton,
+    MatCard,
     MatProgressBarModule,
     MatRadioModule,
-    MatDividerModule,
     MatCheckboxModule
   ],
   templateUrl: './quiz-runner.page.html',
@@ -70,7 +68,9 @@ export class QuizRunnerPageComponent {
         return;
       }
 
-      this.attemptStore.setQuizContext(data.entry, data.definition);
+      untracked(() => {
+        this.attemptStore.setQuizContext(data.entry, data.definition);
+      })
 
       if (mode === 'resume') {
         const resumed = this.attemptStore.resumeAttempt(data.entry.id);

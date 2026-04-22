@@ -125,7 +125,7 @@ function validateQuestion(valueData: unknown, index: number): ValidationResult<Q
     return { ok: false, error: `Question '${id}' contains duplicate choice ids.` };
   }
 
-  if (correctChoiceIds === undefined || (typeof correctChoiceIds !== 'string' && !Array.isArray(correctChoiceIds))) {
+  if (correctChoiceIds === undefined || !Array.isArray(correctChoiceIds)) {
     return { ok: false, error: `Question '${id}' has an invalid correctChoiceIds.` };
   }
 
@@ -142,7 +142,7 @@ function validateQuestion(valueData: unknown, index: number): ValidationResult<Q
     }
   }
 
-  if (type === 'single' && (typeof correctChoiceIds !== 'string')) {
+  if (type === 'single' && ((correctChoiceIds.length !== 1) || !Array.isArray(correctChoiceIds))) {
     return { ok: false, error: `Question '${id}' is single-choice and must have exactly one correct answer.` };
   }
 

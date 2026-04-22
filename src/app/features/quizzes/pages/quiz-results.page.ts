@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, untracked } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DatePipe } from '@angular/common';
@@ -46,18 +46,21 @@ export class QuizResultsPageComponent {
         return;
       }
 
-      this.attemptStore.setQuizContext(data.entry, data.definition);
+      untracked(() => {
+        this.attemptStore.setQuizContext(data.entry, data.definition);
 
-      if (this.attemptStore.attemptId() === attemptId && this.attemptStore.status() === 'finished') {
-        return;
-      }
 
-      const resumed = this.attemptStore.resumeAttempt(data.entry.id);
-      if (resumed && this.attemptStore.attemptId() === attemptId) {
-        return;
-      }
+        if (this.attemptStore.attemptId() === attemptId && this.attemptStore.status() === 'finished') {
+          return;
+        }
 
-      this.attemptStore.loadArchivedAttempt(attemptId);
+        const resumed = this.attemptStore.resumeAttempt(data.entry.id);
+        if (resumed && this.attemptStore.attemptId() === attemptId) {
+          return;
+        }
+
+        this.attemptStore.loadArchivedAttempt(attemptId);
+      })
     });
   }
 

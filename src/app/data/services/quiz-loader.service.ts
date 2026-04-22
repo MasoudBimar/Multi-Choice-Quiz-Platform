@@ -10,9 +10,7 @@ export class QuizLoaderService {
 
   async loadCatalog(): Promise<QuizCatalog> {
     const payload = await firstValueFrom(this.http.get<unknown>('/assets/quizzes/index.json'));
-    console.log(payload);
     const result = validateQuizCatalog(payload);
-    console.log(result);
     if (!result.ok || !result.value) {
       throw new Error(result.error ?? 'Invalid quiz catalog.');
     }
