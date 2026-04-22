@@ -1,6 +1,9 @@
 @if (resolved(); as data) {
   <section class="space-y-6">
-    <mat-card class="overview-card p-6">
+    <mat-card
+      class="overview-card p-6"
+      [style.backgroundImage]="!uiPrefs.isDarkMode() ? data.entry.quizzBackgroundColor : undefined"
+    >
       <h1 class="text-3xl font-bold">{{ data.entry.title }}</h1>
       <p class="mt-2 text-sm leading-6 opacity-90">{{ data.entry.description }}</p>
 
@@ -15,7 +18,9 @@
       </div>
 
       @if (attemptStore.error()) {
-        <p class="mt-4 rounded-md bg-[var(--mat-sys-error-container)] px-3 py-2 text-sm text-[var(--mat-sys-on-error-container)]">
+        <p
+          class="mt-4 rounded-md bg-[var(--mat-sys-error-container)] px-3 py-2 text-sm text-[var(--mat-sys-on-error-container)]"
+        >
           {{ attemptStore.error() }}
         </p>
       }

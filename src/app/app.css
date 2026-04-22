@@ -29,4 +29,7 @@
 .app-content {
   width: min(1100px, 100%);
   margin: 0 auto;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 1rem;
 }

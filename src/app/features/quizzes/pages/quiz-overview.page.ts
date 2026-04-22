@@ -8,6 +8,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { QuizAttemptStore } from '../../../state/stores/quiz-attempt.store';
 import { QuizCatalogStore } from '../../../state/stores/quiz-catalog.store';
 import { QuizResolvedData } from '../../../state/tokens/quiz-route-data';
+import { UiPrefsStore } from '../../../state/stores/ui-prefs.store';
 
 @Component({
   selector: 'app-quiz-overview-page',
@@ -18,6 +19,7 @@ import { QuizResolvedData } from '../../../state/tokens/quiz-route-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizOverviewPageComponent {
+  protected readonly uiPrefs = inject(UiPrefsStore);
   private readonly route = inject(ActivatedRoute);
   private readonly parentRoute = this.route.parent ?? this.route;
 

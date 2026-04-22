@@ -7,63 +7,68 @@
     </p>
   </header>
 
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Search quizzes</mat-label>
-    <input
-      matInput
-      [ngModel]="query()"
-      (ngModelChange)="query.set($event)"
-      placeholder="TypeScript, Signals, basics..."
-      aria-label="Search available quizzes"
-    />
-  </mat-form-field>
+  <section class="quiz-list-section">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Search quizzes</mat-label>
+      <input
+        matInput
+        [ngModel]="query()"
+        (ngModelChange)="query.set($event)"
+        placeholder="TypeScript, Signals, basics..."
+        aria-label="Search available quizzes"
+      />
+    </mat-form-field>
 
-  @if (catalogStore.loading()) {
-    <div class="flex items-center justify-center py-16">
-      <mat-spinner diameter="34" />
-    </div>
-  } @else if (catalogStore.error()) {
-    <mat-card class="p-6">
-      <h2 class="text-lg font-semibold">Unable to load quiz catalog</h2>
-      <p class="mt-2 text-sm opacity-80">{{ catalogStore.error() }}</p>
-      <div class="mt-4">
-        <button mat-flat-button (click)="catalogStore.loadCatalog(true)">Retry</button>
+    @if (catalogStore.loading()) {
+      <div class="flex items-center justify-center py-16">
+        <mat-spinner diameter="34" />
       </div>
-    </mat-card>
-  } @else {
-    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      @for (quiz of filteredCatalog(); track trackByQuizId($index, quiz)) {
-        <mat-card [style.backgroundImage]="quiz.quizzBackgroundColor" class="flex h-full flex-col">
-          <mat-card-header>
-            <mat-card-title>{{ quiz.title }}</mat-card-title>
-            <mat-card-subtitle>{{ quiz.id }}</mat-card-subtitle>
-          </mat-card-header>
+    } @else if (catalogStore.error()) {
+      <mat-card class="p-6">
+        <h2 class="text-lg font-semibold">Unable to load quiz catalog</h2>
+        <p class="mt-2 text-sm opacity-80">{{ catalogStore.error() }}</p>
+        <div class="mt-4">
+          <button mat-flat-button (click)="catalogStore.loadCatalog(true)">Retry</button>
+        </div>
+      </mat-card>
+    } @else {
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        @for (quiz of filteredCatalog(); track trackByQuizId($index, quiz)) {
+          <mat-card
+            class="flex h-full flex-col glass-card"
+            [style.backgroundImage]="!uiPrefs.isDarkMode() ? quiz.quizzBackgroundColor : undefined"
+          >
+            <mat-card-header>
+              <mat-card-title>{{ quiz.title }}</mat-card-title>
+              <!-- <mat-card-subtitle>{{ quiz.id }}</mat-card-subtitle> -->
+            </mat-card-header>
 
-          <mat-card-content class="grow">
-            <p class="text-sm leading-6 opacity-90">{{ quiz.description }}</p>
+            <mat-card-content class="grow">
+              <p class="text-sm leading-6 opacity-90">{{ quiz.description }}</p>
 
-            <div class="mt-4 flex flex-wrap gap-2 text-xs">
-              @if (catalogStore.statsByQuizId()[quiz.id]; as stats) {
-                <span class="chip">Best: {{ stats.bestScore }}%</span>
-                <span class="chip">Last: {{ stats.lastScore }}%</span>
-                <span class="chip">Attempts: {{ stats.attemptCount }}</span>
-              } @else {
-                <span class="chip">No attempts yet</span>
-              }
-            </div>
-          </mat-card-content>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                @if (catalogStore.statsByQuizId()[quiz.id]; as stats) {
+                  <span class="chip">Best: {{ stats.bestScore }}%</span>
+                  <span class="chip">Last: {{ stats.lastScore }}%</span>
+                  <span class="chip">Attempts: {{ stats.attemptCount }}</span>
+                } @else {
+                  <span class="chip">No attempts yet</span>
+                }
+              </div>
+            </mat-card-content>
 
-          <mat-card-actions align="end">
-            <a mat-flat-button [routerLink]="['/quiz', quiz.id]">Open Quiz</a>
-          </mat-card-actions>
+            <mat-card-actions align="end">
+              <a mat-flat-button [routerLink]="['/quiz', quiz.id]">Open Quiz</a>
+            </mat-card-actions>
+          </mat-card>
+        }
+      </div>
+
+      @if (filteredCatalog().length === 0) {
+        <mat-card class="p-6 text-center">
+          <p>No quizzes matched your search.</p>
         </mat-card>
       }
-    </div>
-
-    @if (filteredCatalog().length === 0) {
-      <mat-card class="p-6 text-center">
-        <p>No quizzes matched your search.</p>
-      </mat-card>
     }
-  }
+  </section>
 </section>

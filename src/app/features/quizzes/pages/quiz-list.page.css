@@ -1,14 +1,18 @@
+.quiz-list-section {
+  margin: 10px auto;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
 .kicker {
   color: color-mix(in srgb, var(--mat-sys-primary) 70%, var(--mat-sys-on-surface));
 }
 
 .quiz-card {
   border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 55%, transparent);
-  background: linear-gradient(
-    160deg,
-    color-mix(in srgb, var(--mat-sys-surface-container) 95%, transparent),
-    color-mix(in srgb, var(--mat-sys-surface) 90%, transparent)
-  );
+  background: linear-gradient(160deg,
+      color-mix(in srgb, var(--mat-sys-surface-container) 95%, transparent),
+      color-mix(in srgb, var(--mat-sys-surface) 90%, transparent));
 }
 
 .chip {
@@ -16,4 +20,29 @@
   padding: 0.3rem 0.75rem;
   border: 1px solid color-mix(in srgb, var(--mat-sys-outline) 35%, transparent);
   background: color-mix(in srgb, var(--mat-sys-primary-container) 32%, transparent);
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.05));
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
 }

@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { QuizCatalogStore } from '../../../state/stores/quiz-catalog.store';
+import { UiPrefsStore } from '../../../state/stores/ui-prefs.store';
 
 @Component({
   selector: 'app-quiz-list-page',
@@ -25,6 +26,7 @@ import { QuizCatalogStore } from '../../../state/stores/quiz-catalog.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizListPageComponent {
+  protected readonly uiPrefs = inject(UiPrefsStore);
   protected readonly catalogStore = inject(QuizCatalogStore);
   protected readonly query = signal('');
 
