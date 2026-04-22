@@ -31,7 +31,9 @@
           "text": "A browser-only programming language"
         }
       ],
-      "correctChoiceIds": "q001_c1",
+      "correctChoiceIds": [
+        "q001_c1"
+      ],
       "explanation": "TypeScript extends JavaScript syntax with a static type system.",
       "prompt": "What is TypeScript?"
     },
@@ -63,7 +65,9 @@
           "text": "Run directly in the browser without JavaScript"
         }
       ],
-      "correctChoiceIds": "q002_c1",
+      "correctChoiceIds": [
+        "q002_c1"
+      ],
       "explanation": "TypeScript improves reliability by checking types before runtime.",
       "prompt": "Why is TypeScript designed for better developer efficiency?"
     },
@@ -95,7 +99,9 @@
           "text": "It runs only in Deno and nowhere else"
         }
       ],
-      "correctChoiceIds": "q003_c1",
+      "correctChoiceIds": [
+        "q003_c1"
+      ],
       "explanation": "TypeScript emits JavaScript, so it works in browsers and Node.js.",
       "prompt": "What happens to TypeScript code before execution?"
     },
@@ -127,7 +133,9 @@
           "text": "Only in production mode"
         }
       ],
-      "correctChoiceIds": "q004_c1",
+      "correctChoiceIds": [
+        "q004_c1"
+      ],
       "explanation": "TypeScript supports checking JavaScript files with proper configuration.",
       "prompt": "Can TypeScript check inconsistencies in JavaScript code?"
     },
@@ -159,7 +167,9 @@
           "text": "Use npm test without configuration"
         }
       ],
-      "correctChoiceIds": "q005_c1",
+      "correctChoiceIds": [
+        "q005_c1"
+      ],
       "explanation": "JSDoc annotations plus checkJs enable static checks in .js files.",
       "prompt": "Which combination enables type checking in JavaScript files?"
     },
@@ -191,7 +201,9 @@
           "text": "Run only minified JavaScript"
         }
       ],
-      "correctChoiceIds": "q006_c1",
+      "correctChoiceIds": [
+        "q006_c1"
+      ],
       "explanation": "TypeScript supports incremental adoption instead of full rewrites.",
       "prompt": "What is a practical way to adopt TypeScript in an existing JS project?"
     },
@@ -223,7 +235,9 @@
           "text": "Use browser DevTools settings"
         }
       ],
-      "correctChoiceIds": "q007_c1",
+      "correctChoiceIds": [
+        "q007_c1"
+      ],
       "explanation": "Transpile output is controlled through compiler options in tsconfig.",
       "prompt": "How do you control which ECMAScript version TypeScript emits?"
     },
@@ -255,7 +269,9 @@
           "text": ".gitignore -> compiler target"
         }
       ],
-      "correctChoiceIds": "q008_c1",
+      "correctChoiceIds": [
+        "q008_c1"
+      ],
       "explanation": "The target setting belongs under compilerOptions in tsconfig.",
       "prompt": "Where is the TypeScript transpile target configured?"
     },
@@ -287,7 +303,9 @@
           "text": "TypeScript only lints files without output"
         }
       ],
-      "correctChoiceIds": "q009_c1",
+      "correctChoiceIds": [
+        "q009_c1"
+      ],
       "explanation": "Compilation flow is parse/type-check/emit JavaScript.",
       "prompt": "Complete the statement: TypeScript ___ your code and ___ JavaScript."
     },
@@ -370,7 +388,9 @@
           "text": "Both are purely dynamic with no checks"
         }
       ],
-      "correctChoiceIds": "q011_c1",
+      "correctChoiceIds": [
+        "q011_c1"
+      ],
       "explanation": "This is the core contrast highlighted in the notes.",
       "prompt": "Which statement about JavaScript and TypeScript typing is correct?"
     },
@@ -402,7 +422,9 @@
           "text": "No checks happen at all"
         }
       ],
-      "correctChoiceIds": "q012_c1",
+      "correctChoiceIds": [
+        "q012_c1"
+      ],
       "explanation": "TypeScript validates type consistency during compilation.",
       "prompt": "What does compile-time type checking mean?"
     },
@@ -469,7 +491,9 @@
           "text": "tsc install global"
         }
       ],
-      "correctChoiceIds": "q014_c1",
+      "correctChoiceIds": [
+        "q014_c1"
+      ],
       "explanation": "Global installation command in the notes uses npm -g.",
       "prompt": "Which command installs TypeScript globally?"
     },
@@ -501,7 +525,9 @@
           "text": "ts-node --emit filename.ts"
         }
       ],
-      "correctChoiceIds": "q015_c1",
+      "correctChoiceIds": [
+        "q015_c1"
+      ],
       "explanation": "The standard compiler command is `tsc <file>`.",
       "prompt": "How do you transpile a TypeScript file to JavaScript?"
     },
@@ -533,7 +559,9 @@
           "text": "node --init-ts"
         }
       ],
-      "correctChoiceIds": "q016_c1",
+      "correctChoiceIds": [
+        "q016_c1"
+      ],
       "explanation": "This generates a default tsconfig.json file.",
       "prompt": "Which command creates a default `tsconfig.json`?"
     },
@@ -565,7 +593,9 @@
           "text": "Inside dist output folder"
         }
       ],
-      "correctChoiceIds": "q017_c1",
+      "correctChoiceIds": [
+        "q017_c1"
+      ],
       "explanation": "The notes explicitly say to place tsconfig.json at project root.",
       "prompt": "Where should `tsconfig.json` be created?"
     },
@@ -663,7 +693,9 @@
           "text": "Removes git commit messages"
         }
       ],
-      "correctChoiceIds": "q019_c1",
+      "correctChoiceIds": [
+        "q019_c1"
+      ],
       "explanation": "This option controls comment emission in compiled JS output.",
       "prompt": "What does `removeComments: true` do?"
     },
@@ -695,7 +727,9 @@
           "text": "Forces runtime validation only"
         }
       ],
-      "correctChoiceIds": "q020_c1",
+      "correctChoiceIds": [
+        "q020_c1"
+      ],
       "explanation": "It raises errors when a value would be implicitly typed as any.",
       "prompt": "What is the purpose of `noImplicitAny: true`?"
     },
@@ -727,7 +761,9 @@
           "text": "Only affects comments"
         }
       ],
-      "correctChoiceIds": "q021_c1",
+      "correctChoiceIds": [
+        "q021_c1"
+      ],
       "explanation": "These options help keep code clean by catching unused declarations.",
       "prompt": "What do `noUnusedParameters` and `noUnusedLocals` enforce?"
     },
@@ -759,7 +795,9 @@
           "text": "Enables dead code execution at runtime"
         }
       ],
-      "correctChoiceIds": "q022_c1",
+      "correctChoiceIds": [
+        "q022_c1"
+      ],
       "explanation": "Setting `allowUnreachableCode` to false enforces stricter control flow.",
       "prompt": "What is the effect of `allowUnreachableCode: false`?"
     },
@@ -791,7 +829,9 @@
           "text": "Use browser-only breakpoints for Node apps"
         }
       ],
-      "correctChoiceIds": "q023_c1",
+      "correctChoiceIds": [
+        "q023_c1"
+      ],
       "explanation": "This sequence matches the debugging instructions exactly.",
       "prompt": "Which workflow is described for debugging in VS Code?"
     },
@@ -858,7 +898,9 @@
           "text": "ts-node: watch"
         }
       ],
-      "correctChoiceIds": "q025_c1",
+      "correctChoiceIds": [
+        "q025_c1"
+      ],
       "explanation": "That exact value appears in `preLaunchTask`.",
       "prompt": "What `preLaunchTask` value is used in the launch configuration?"
     },
@@ -997,7 +1039,9 @@
           "text": "No type declaration is allowed"
         }
       ],
-      "correctChoiceIds": "q028_c1",
+      "correctChoiceIds": [
+        "q028_c1"
+      ],
       "explanation": "Explicit typing means writing type annotations yourself.",
       "prompt": "What does explicit typing mean in TypeScript?"
     },
@@ -1029,7 +1073,9 @@
           "text": "Type inference requires Babel plugins"
         }
       ],
-      "correctChoiceIds": "q029_c1",
+      "correctChoiceIds": [
+        "q029_c1"
+      ],
       "explanation": "Inference reduces manual annotations in many cases.",
       "prompt": "What is type inference in TypeScript?"
     },
@@ -1061,7 +1107,9 @@
           "text": "An enum with numeric members"
         }
       ],
-      "correctChoiceIds": "q030_c1",
+      "correctChoiceIds": [
+        "q030_c1"
+      ],
       "explanation": "Tuples are fixed-position, fixed-type arrays.",
       "prompt": "Which statement best describes a TypeScript tuple?"
     },
@@ -1093,7 +1141,9 @@
           "text": "Tuple values must all be strings"
         }
       ],
-      "correctChoiceIds": "q031_c1",
+      "correctChoiceIds": [
+        "q031_c1"
+      ],
       "explanation": "The notes highlight this practical tuple limitation.",
       "prompt": "What caution is shown in the tuple example?"
     },
@@ -1125,7 +1175,9 @@
           "text": "An enum is a markdown syntax feature"
         }
       ],
-      "correctChoiceIds": "q032_c1",
+      "correctChoiceIds": [
+        "q032_c1"
+      ],
       "explanation": "Enums group named constant values.",
       "prompt": "What is an enum in TypeScript?"
     },
@@ -1157,7 +1209,9 @@
           "text": "It replaces tsconfig.json"
         }
       ],
-      "correctChoiceIds": "q033_c1",
+      "correctChoiceIds": [
+        "q033_c1"
+      ],
       "explanation": "The lesson states const enums help optimization.",
       "prompt": "Why might you use `const enum`?"
     },
@@ -1189,7 +1243,9 @@
           "text": "UPPER_SNAKE_CASE only"
         }
       ],
-      "correctChoiceIds": "q034_c1",
+      "correctChoiceIds": [
+        "q034_c1"
+      ],
       "explanation": "The enum example explicitly notes PascalCase.",
       "prompt": "What naming convention is shown for enums?"
     },
@@ -1206,23 +1262,25 @@
       "prompt": "What does the TypeScript `unknown` type require before usage?",
       "choices": [
         {
-          "id": "a",
+          "id": "q035-a",
           "text": "It can be used anywhere without checks"
         },
         {
-          "id": "b",
+          "id": "q035-b",
           "text": "A type assertion or narrowing step"
         },
         {
-          "id": "c",
+          "id": "q035-c",
           "text": "A decorator"
         },
         {
-          "id": "d",
+          "id": "q035-d",
           "text": "A generic constraint"
         }
       ],
-      "correctChoiceIds": "b",
+      "correctChoiceIds": [
+        "q035-b"
+      ],
       "explanation": "Values typed as `unknown` must be narrowed or asserted before property access or assignment."
     },
     {
@@ -1238,23 +1296,25 @@
       "prompt": "Which compiler option enables strict null checking?",
       "choices": [
         {
-          "id": "a",
+          "id": "q036-a",
           "text": "`noImplicitAny`"
         },
         {
-          "id": "b",
+          "id": "q036-b",
           "text": "`skipLibCheck`"
         },
         {
-          "id": "c",
+          "id": "q036-c",
           "text": "`strictNullChecks`"
         },
         {
-          "id": "d",
+          "id": "q036-d",
           "text": "`preserveConstEnums`"
         }
       ],
-      "correctChoiceIds": "c",
+      "correctChoiceIds": [
+        "q036-c"
+      ],
       "explanation": "`strictNullChecks` makes `null` and `undefined` distinct types unless explicitly included."
     },
     {
@@ -1270,23 +1330,25 @@
       "prompt": "What does `readonly` do on a TypeScript interface property?",
       "choices": [
         {
-          "id": "a",
+          "id": "q037-a",
           "text": "Makes the property private"
         },
         {
-          "id": "b",
+          "id": "q037-b",
           "text": "Allows assignment only in constructors"
         },
         {
-          "id": "c",
+          "id": "q037-c",
           "text": "Prevents reassignment after initialization"
         },
         {
-          "id": "d",
+          "id": "q037-d",
           "text": "Removes the property from emitted JavaScript"
         }
       ],
-      "correctChoiceIds": "c",
+      "correctChoiceIds": [
+        "q037-c"
+      ],
       "explanation": "`readonly` prevents assignment after initialization at compile time."
     },
     {
@@ -1302,23 +1364,25 @@
       "prompt": "Which utility type makes all properties optional?",
       "choices": [
         {
-          "id": "a",
+          "id": "q038-a",
           "text": "`Required<T>`"
         },
         {
-          "id": "b",
+          "id": "q038-b",
           "text": "`Readonly<T>`"
         },
         {
-          "id": "c",
+          "id": "q038-c",
           "text": "`Pick<T, K>`"
         },
         {
-          "id": "d",
+          "id": "q038-d",
           "text": "`Partial<T>`"
         }
       ],
-      "correctChoiceIds": "d",
+      "correctChoiceIds": [
+        "q038-d"
+      ],
       "explanation": "`Partial<T>` maps every property in `T` to optional."
     },
     {
@@ -1334,23 +1398,25 @@
       "prompt": "What is the inferred type of `[1, 2, 3] as const`?",
       "choices": [
         {
-          "id": "a",
+          "id": "q039-a",
           "text": "number[]"
         },
         {
-          "id": "b",
+          "id": "q039-b",
           "text": "readonly [1, 2, 3]"
         },
         {
-          "id": "c",
+          "id": "q039-c",
           "text": "readonly number[]"
         },
         {
-          "id": "d",
+          "id": "q039-d",
           "text": "[number, number, number]"
         }
       ],
-      "correctChoiceIds": "b",
+      "correctChoiceIds": [
+        "q039-b"
+      ],
       "explanation": "`as const` freezes literal types and tuple readonlyness."
     },
     {
@@ -1366,23 +1432,25 @@
       "prompt": "Which statement best describes the relationship between TypeScript and JavaScript?",
       "choices": [
         {
-          "id": "a",
+          "id": "q040-a",
           "text": "All TypeScript programs are valid JavaScript programs"
         },
         {
-          "id": "b",
+          "id": "q040-b",
           "text": "TypeScript and JavaScript have completely different syntax"
         },
         {
-          "id": "c",
+          "id": "q040-c",
           "text": "All JavaScript programs are syntactically valid TypeScript programs, but not all TypeScript programs are valid JavaScript programs"
         },
         {
-          "id": "d",
+          "id": "q040-d",
           "text": "JavaScript is a superset of TypeScript"
         }
       ],
-      "correctChoiceIds": "c",
+      "correctChoiceIds": [
+        "q040-c"
+      ],
       "explanation": "TypeScript is a superset of JavaScript, so JavaScript syntax is accepted by TypeScript."
     },
     {
@@ -1398,23 +1466,25 @@
       "prompt": "What is the main purpose of TypeScript's static type system?",
       "choices": [
         {
-          "id": "a",
+          "id": "q041-a",
           "text": "To replace JavaScript at runtime"
         },
         {
-          "id": "b",
+          "id": "q041-b",
           "text": "To model JavaScript runtime behavior and catch code that may fail at runtime"
         },
         {
-          "id": "c",
+          "id": "q041-c",
           "text": "To make all programs run faster in the browser"
         },
         {
-          "id": "d",
+          "id": "q041-d",
           "text": "To remove the need for testing"
         }
       ],
-      "correctChoiceIds": "b",
+      "correctChoiceIds": [
+        "q041-b"
+      ],
       "explanation": "TypeScript's type system aims to reflect JavaScript behavior and flag likely runtime errors before execution."
     },
     {
@@ -1430,23 +1500,25 @@
       "prompt": "Can a TypeScript program that passes the type checker still throw an error at runtime?",
       "choices": [
         {
-          "id": "a",
+          "id": "q042-a",
           "text": "No, passing the type checker guarantees runtime safety"
         },
         {
-          "id": "b",
+          "id": "q042-b",
           "text": "Yes, because the type checker cannot catch every possible runtime problem"
         },
         {
-          "id": "c",
+          "id": "q042-c",
           "text": "No, unless the code uses `any`"
         },
         {
-          "id": "d",
+          "id": "q042-d",
           "text": "Yes, but only in Node.js"
         }
       ],
-      "correctChoiceIds": "b",
+      "correctChoiceIds": [
+        "q042-b"
+      ],
       "explanation": "TypeScript improves safety, but it does not guarantee that runtime exceptions can never happen."
     },
     {
@@ -1462,23 +1534,25 @@
       "prompt": "Which of these is an example of a legal JavaScript construct that TypeScript often disallows?",
       "choices": [
         {
-          "id": "a",
+          "id": "q043-a",
           "text": "Declaring a variable with `let`"
         },
         {
-          "id": "b",
+          "id": "q043-b",
           "text": "Using an object literal"
         },
         {
-          "id": "c",
+          "id": "q043-c",
           "text": "Calling a function with the wrong number of arguments"
         },
         {
-          "id": "d",
+          "id": "q043-d",
           "text": "Writing an `if` statement"
         }
       ],
-      "correctChoiceIds": "c",
+      "correctChoiceIds": [
+        "q043-c"
+      ],
       "explanation": "TypeScript rejects some questionable JavaScript patterns, including argument-count mismatches."
     },
     {
@@ -1494,23 +1568,25 @@
       "prompt": "Why are type annotations useful in TypeScript?",
       "choices": [
         {
-          "id": "a",
+          "id": "q044-a",
           "text": "They tell TypeScript your intent and help distinguish correct from incorrect code"
         },
         {
-          "id": "b",
+          "id": "q044-b",
           "text": "They are required for every variable in every file"
         },
         {
-          "id": "c",
+          "id": "q044-c",
           "text": "They make JavaScript code execute without compilation"
         },
         {
-          "id": "d",
+          "id": "q044-d",
           "text": "They prevent all syntax errors automatically"
         }
       ],
-      "correctChoiceIds": "a",
+      "correctChoiceIds": [
+        "q044-a"
+      ],
       "explanation": "Type annotations communicate intent to the type checker, which improves correctness checks."
     }
   ]
