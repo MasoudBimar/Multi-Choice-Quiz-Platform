@@ -1588,6 +1588,1076 @@
         "q044-a"
       ],
       "explanation": "Type annotations communicate intent to the type checker, which improves correctness checks."
+    },
+    {
+      "id": "ts-q045",
+      "value": null,
+      "key": "type_alias_definition",
+      "label": "TS-45",
+      "title": "Type Alias Definition",
+      "required": true,
+      "order": 45,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q045_c1",
+          "text": "A custom name for a type"
+        },
+        {
+          "id": "q045_c2",
+          "text": "A runtime object factory"
+        },
+        {
+          "id": "q045_c3",
+          "text": "A JavaScript package installer"
+        },
+        {
+          "id": "q045_c4",
+          "text": "A compiler option for source maps"
+        }
+      ],
+      "correctChoiceIds": [
+        "q045_c1"
+      ],
+      "explanation": "Type aliases define types with custom names.",
+      "prompt": "What does a TypeScript type alias allow you to define?"
+    },
+    {
+      "id": "ts-q046",
+      "value": null,
+      "key": "interface_scope",
+      "label": "TS-46",
+      "title": "Interface Scope",
+      "required": true,
+      "order": 46,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q046_c1",
+          "text": "Interfaces apply to object shapes"
+        },
+        {
+          "id": "q046_c2",
+          "text": "Interfaces can only describe primitive numbers"
+        },
+        {
+          "id": "q046_c3",
+          "text": "Interfaces replace emitted JavaScript functions"
+        },
+        {
+          "id": "q046_c4",
+          "text": "Interfaces are only used in tsconfig.json"
+        }
+      ],
+      "correctChoiceIds": [
+        "q046_c1"
+      ],
+      "explanation": "The notes describe interfaces as similar to type aliases, except focused on object types.",
+      "prompt": "What are TypeScript interfaces mainly designed to describe?"
+    },
+    {
+      "id": "ts-q047",
+      "value": null,
+      "key": "type_alias_flexibility",
+      "label": "TS-47",
+      "title": "Type Alias Flexibility",
+      "required": true,
+      "order": 47,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q047_c1",
+          "text": "Primitives"
+        },
+        {
+          "id": "q047_c2",
+          "text": "Unions"
+        },
+        {
+          "id": "q047_c3",
+          "text": "Intersections"
+        },
+        {
+          "id": "q047_c4",
+          "text": "Tuples"
+        },
+        {
+          "id": "q047_c5",
+          "text": "Functions"
+        },
+        {
+          "id": "q047_c6",
+          "text": "Runtime database tables only"
+        }
+      ],
+      "correctChoiceIds": [
+        "q047_c1",
+        "q047_c2",
+        "q047_c3",
+        "q047_c4",
+        "q047_c5"
+      ],
+      "explanation": "The lesson lists type aliases as flexible enough for primitives, unions, intersections, tuples, mapped types, and functions.",
+      "prompt": "Select all examples of things type aliases can represent."
+    },
+    {
+      "id": "ts-q048",
+      "value": null,
+      "key": "interface_strengths",
+      "label": "TS-48",
+      "title": "Interface Strengths",
+      "required": true,
+      "order": 48,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q048_c1",
+          "text": "Designed for object shape"
+        },
+        {
+          "id": "q048_c2",
+          "text": "Supports declaration merging"
+        },
+        {
+          "id": "q048_c3",
+          "text": "Can be extended or implemented cleanly"
+        },
+        {
+          "id": "q048_c4",
+          "text": "Automatically converts strings to numbers"
+        }
+      ],
+      "correctChoiceIds": [
+        "q048_c1",
+        "q048_c2",
+        "q048_c3"
+      ],
+      "explanation": "These are the interface strengths called out in the lesson.",
+      "prompt": "Select the core advantages of interfaces mentioned in the notes."
+    },
+    {
+      "id": "ts-q049",
+      "value": null,
+      "key": "union_type_definition",
+      "label": "TS-49",
+      "title": "Union Types",
+      "required": true,
+      "order": 49,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q049_c1",
+          "text": "A type that can be one of several types"
+        },
+        {
+          "id": "q049_c2",
+          "text": "A type that must contain all properties from every type"
+        },
+        {
+          "id": "q049_c3",
+          "text": "A type that disables type checking"
+        },
+        {
+          "id": "q049_c4",
+          "text": "A type that only accepts null"
+        }
+      ],
+      "correctChoiceIds": [
+        "q049_c1"
+      ],
+      "explanation": "Union types allow a value to be one of multiple possible types.",
+      "prompt": "What does a union type represent?"
+    },
+    {
+      "id": "q050",
+      "value": null,
+      "key": "intersection_type_definition",
+      "label": "TS-50",
+      "title": "Intersection Types",
+      "required": true,
+      "order": 50,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q050_c1",
+          "text": "A type that combines properties of multiple types"
+        },
+        {
+          "id": "q050_c2",
+          "text": "A type that randomly chooses one possible type"
+        },
+        {
+          "id": "q050_c3",
+          "text": "A type that can only hold string literals"
+        },
+        {
+          "id": "q050_c4",
+          "text": "A type that removes all object properties"
+        }
+      ],
+      "correctChoiceIds": [
+        "q050_c1"
+      ],
+      "explanation": "An intersection such as A & B must satisfy both A and B.",
+      "prompt": "What does an intersection type do?"
+    },
+    {
+      "id": "q051",
+      "value": null,
+      "key": "literal_types",
+      "label": "TS-51",
+      "title": "Literal Types",
+      "required": true,
+      "order": 51,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q051_c1",
+          "text": "String literals"
+        },
+        {
+          "id": "q051_c2",
+          "text": "Number literals"
+        },
+        {
+          "id": "q051_c3",
+          "text": "Boolean literals"
+        },
+        {
+          "id": "q051_c4",
+          "text": "CSS selector literals only"
+        }
+      ],
+      "correctChoiceIds": [
+        "q051_c1",
+        "q051_c2",
+        "q051_c3"
+      ],
+      "explanation": "The lesson lists string, number, and boolean literal types.",
+      "prompt": "Which literal type categories are available in TypeScript?"
+    },
+    {
+      "id": "q052",
+      "value": null,
+      "key": "template_literal_types",
+      "label": "TS-52",
+      "title": "Template Literal Types",
+      "required": true,
+      "order": 52,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q052_c1",
+          "text": "They create string types based on patterns"
+        },
+        {
+          "id": "q052_c2",
+          "text": "They create HTML templates at runtime"
+        },
+        {
+          "id": "q052_c3",
+          "text": "They replace all union types"
+        },
+        {
+          "id": "q052_c4",
+          "text": "They compile markdown into JavaScript"
+        }
+      ],
+      "correctChoiceIds": [
+        "q052_c1"
+      ],
+      "explanation": "Template literal types let you model string patterns such as `/api/${string}`.",
+      "prompt": "What are template literal types used for?"
+    },
+    {
+      "id": "q053",
+      "value": null,
+      "key": "type_narrowing",
+      "label": "TS-53",
+      "title": "Type Narrowing",
+      "required": true,
+      "order": 53,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q053_c1",
+          "text": "Refining a broad type to a more specific type inside a conditional block"
+        },
+        {
+          "id": "q053_c2",
+          "text": "Deleting all union members from a type"
+        },
+        {
+          "id": "q053_c3",
+          "text": "Changing a runtime value into another value"
+        },
+        {
+          "id": "q053_c4",
+          "text": "Making every property optional"
+        }
+      ],
+      "correctChoiceIds": [
+        "q053_c1"
+      ],
+      "explanation": "Type narrowing lets TypeScript understand a more specific type after checks such as typeof.",
+      "prompt": "What is type narrowing?"
+    },
+    {
+      "id": "q054",
+      "value": null,
+      "key": "narrowing_techniques",
+      "label": "TS-54",
+      "title": "Narrowing Techniques",
+      "required": true,
+      "order": 54,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q054_c1",
+          "text": "typeof"
+        },
+        {
+          "id": "q054_c2",
+          "text": "instanceof"
+        },
+        {
+          "id": "q054_c3",
+          "text": "User-defined type guards"
+        },
+        {
+          "id": "q054_c4",
+          "text": "Discriminated unions"
+        },
+        {
+          "id": "q054_c5",
+          "text": "npm install"
+        }
+      ],
+      "correctChoiceIds": [
+        "q054_c1",
+        "q054_c2",
+        "q054_c3",
+        "q054_c4"
+      ],
+      "explanation": "The lesson lists typeof, instanceof, user-defined guards, and discriminated unions as narrowing techniques.",
+      "prompt": "Select all type narrowing techniques mentioned in the notes."
+    },
+    {
+      "id": "q055",
+      "value": null,
+      "key": "discriminated_union_field",
+      "label": "TS-55",
+      "title": "Discriminated Unions",
+      "required": true,
+      "order": 55,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q055_c1",
+          "text": "A shared literal field that identifies the current union member"
+        },
+        {
+          "id": "q055_c2",
+          "text": "A field that stores any runtime value without checks"
+        },
+        {
+          "id": "q055_c3",
+          "text": "A field that must always be named id"
+        },
+        {
+          "id": "q055_c4",
+          "text": "A field that disables strictNullChecks"
+        }
+      ],
+      "correctChoiceIds": [
+        "q055_c1"
+      ],
+      "explanation": "Discriminated unions commonly use one shared literal field, such as state, to narrow the possible type.",
+      "prompt": "What makes a discriminated union work?"
+    },
+    {
+      "id": "q056",
+      "value": null,
+      "key": "strict_null_checks",
+      "label": "TS-56",
+      "title": "strictNullChecks",
+      "required": true,
+      "order": 56,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q056_c1",
+          "text": "null and undefined must be explicitly included in a type when needed"
+        },
+        {
+          "id": "q056_c2",
+          "text": "null becomes assignable to every number"
+        },
+        {
+          "id": "q056_c3",
+          "text": "undefined is removed from JavaScript output"
+        },
+        {
+          "id": "q056_c4",
+          "text": "all optional chaining is disabled"
+        }
+      ],
+      "correctChoiceIds": [
+        "q056_c1"
+      ],
+      "explanation": "With strictNullChecks enabled, null and undefined are not assignable unless the type says so.",
+      "prompt": "What does `strictNullChecks` enforce?"
+    },
+    {
+      "id": "q057",
+      "value": null,
+      "key": "nullable_handling",
+      "label": "TS-57",
+      "title": "Handling Nullable Values",
+      "required": true,
+      "order": 57,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q057_c1",
+          "text": "Use union types to include null or undefined"
+        },
+        {
+          "id": "q057_c2",
+          "text": "Use optional chaining"
+        },
+        {
+          "id": "q057_c3",
+          "text": "Use the nullish coalescing operator"
+        },
+        {
+          "id": "q057_c4",
+          "text": "Disable TypeScript for the whole project"
+        }
+      ],
+      "correctChoiceIds": [
+        "q057_c1",
+        "q057_c2",
+        "q057_c3"
+      ],
+      "explanation": "The lesson recommends explicit unions, optional chaining, and nullish coalescing for null or undefined values.",
+      "prompt": "Select the recommended ways to deal with null and undefined values."
+    },
+    {
+      "id": "q058",
+      "value": null,
+      "key": "optional_chaining",
+      "label": "TS-58",
+      "title": "Optional Chaining",
+      "required": true,
+      "order": 58,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q058_c1",
+          "text": "Safely accesses a property when the value before it might be null or undefined"
+        },
+        {
+          "id": "q058_c2",
+          "text": "Forces a value to be non-null at runtime"
+        },
+        {
+          "id": "q058_c3",
+          "text": "Converts undefined into an empty string"
+        },
+        {
+          "id": "q058_c4",
+          "text": "Requires every property to exist"
+        }
+      ],
+      "correctChoiceIds": [
+        "q058_c1"
+      ],
+      "explanation": "Optional chaining prevents crashes while accessing nested values that may be null or undefined.",
+      "prompt": "What does optional chaining do?"
+    },
+    {
+      "id": "q059",
+      "value": null,
+      "key": "optional_chaining_forms",
+      "label": "TS-59",
+      "title": "Optional Chaining Forms",
+      "required": true,
+      "order": 59,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q059_c1",
+          "text": "Optional property access: user?.userName"
+        },
+        {
+          "id": "q059_c2",
+          "text": "Optional element access: customers?.[0]"
+        },
+        {
+          "id": "q059_c3",
+          "text": "Optional call: log?.(\"test\")"
+        },
+        {
+          "id": "q059_c4",
+          "text": "Optional import access: import?.module"
+        }
+      ],
+      "correctChoiceIds": [
+        "q059_c1",
+        "q059_c2",
+        "q059_c3"
+      ],
+      "explanation": "The notes show optional property access, optional element access, and optional call.",
+      "prompt": "Select the optional chaining forms shown in the lesson."
+    },
+    {
+      "id": "q060",
+      "value": null,
+      "key": "nullish_coalescing",
+      "label": "TS-60",
+      "title": "Nullish Coalescing",
+      "required": true,
+      "order": 60,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q060_c1",
+          "text": "It returns the right-hand value only when the left-hand value is null or undefined"
+        },
+        {
+          "id": "q060_c2",
+          "text": "It returns the right-hand value for every falsy value"
+        },
+        {
+          "id": "q060_c3",
+          "text": "It converts null to false"
+        },
+        {
+          "id": "q060_c4",
+          "text": "It removes undefined from all object properties"
+        }
+      ],
+      "correctChoiceIds": [
+        "q060_c1"
+      ],
+      "explanation": "`??` is a null-or-undefined fallback, not a general falsy fallback.",
+      "prompt": "How does the nullish coalescing operator `??` behave?"
+    },
+    {
+      "id": "q061",
+      "value": null,
+      "key": "nullish_assignment",
+      "label": "TS-61",
+      "title": "Nullish Assignment",
+      "required": true,
+      "order": 61,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q061_c1",
+          "text": "value = value ?? 10"
+        },
+        {
+          "id": "q061_c2",
+          "text": "value = value || 10"
+        },
+        {
+          "id": "q061_c3",
+          "text": "value = 10 ?? value"
+        },
+        {
+          "id": "q061_c4",
+          "text": "value = null && 10"
+        }
+      ],
+      "correctChoiceIds": [
+        "q061_c1"
+      ],
+      "explanation": "The assignment version `value ??= 10` is equivalent to `value = value ?? 10`.",
+      "prompt": "What is `value ??= 10` equivalent to?"
+    },
+    {
+      "id": "q062",
+      "value": null,
+      "key": "type_assertion",
+      "label": "TS-62",
+      "title": "Type Assertion",
+      "required": true,
+      "order": 62,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q062_c1",
+          "text": "It tells the compiler to treat a value as a specific type without changing the runtime value"
+        },
+        {
+          "id": "q062_c2",
+          "text": "It converts the runtime value into the asserted type"
+        },
+        {
+          "id": "q062_c3",
+          "text": "It checks values from an API at runtime"
+        },
+        {
+          "id": "q062_c4",
+          "text": "It only works in JavaScript files"
+        }
+      ],
+      "correctChoiceIds": [
+        "q062_c1"
+      ],
+      "explanation": "The lesson emphasizes that `as` does not perform conversion.",
+      "prompt": "What does a TypeScript type assertion do?"
+    },
+    {
+      "id": "q063",
+      "value": null,
+      "key": "type_assertion_forms",
+      "label": "TS-63",
+      "title": "Assertion Syntax",
+      "required": true,
+      "order": 63,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q063_c1",
+          "text": "`as` syntax is the modern standard"
+        },
+        {
+          "id": "q063_c2",
+          "text": "Angle-bracket syntax is the only valid syntax"
+        },
+        {
+          "id": "q063_c3",
+          "text": "Assertions require JSON syntax"
+        },
+        {
+          "id": "q063_c4",
+          "text": "Assertions are only allowed in comments"
+        }
+      ],
+      "correctChoiceIds": [
+        "q063_c1"
+      ],
+      "explanation": "The notes show both forms, but identify `as` as the modern standard.",
+      "prompt": "Which type assertion syntax is described as the modern standard?"
+    },
+    {
+      "id": "q064",
+      "value": null,
+      "key": "any_type_risk",
+      "label": "TS-64",
+      "title": "The any Type",
+      "required": true,
+      "order": 64,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q064_c1",
+          "text": "It silences the type checker"
+        },
+        {
+          "id": "q064_c2",
+          "text": "It weakens TypeScript language services"
+        },
+        {
+          "id": "q064_c3",
+          "text": "It can lead to runtime errors TypeScript is meant to prevent"
+        },
+        {
+          "id": "q064_c4",
+          "text": "It forces stricter narrowing before use"
+        }
+      ],
+      "correctChoiceIds": [
+        "q064_c1",
+        "q064_c2",
+        "q064_c3"
+      ],
+      "explanation": "The lesson warns that `any` opts out of checking and can hide errors.",
+      "prompt": "Why is using `any` not recommended?"
+    },
+    {
+      "id": "q065",
+      "value": null,
+      "key": "implicit_any",
+      "label": "TS-65",
+      "title": "Implicit any",
+      "required": true,
+      "order": 65,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q065_c1",
+          "text": "It occurs when TypeScript cannot infer a type and no explicit annotation is provided"
+        },
+        {
+          "id": "q065_c2",
+          "text": "It occurs only when a variable is set to null"
+        },
+        {
+          "id": "q065_c3",
+          "text": "It is required for every function parameter"
+        },
+        {
+          "id": "q065_c4",
+          "text": "It converts unknown into any automatically"
+        }
+      ],
+      "correctChoiceIds": [
+        "q065_c1"
+      ],
+      "explanation": "Implicit any can be caught with explicit annotations or `noImplicitAny`.",
+      "prompt": "When does implicit `any` occur?"
+    },
+    {
+      "id": "q066",
+      "value": null,
+      "key": "unknown_type",
+      "label": "TS-66",
+      "title": "The unknown Type",
+      "required": true,
+      "order": 66,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q066_c1",
+          "text": "It forces type checks or narrowing before using the value"
+        },
+        {
+          "id": "q066_c2",
+          "text": "It bypasses the type checker like any"
+        },
+        {
+          "id": "q066_c3",
+          "text": "It means the value can never exist"
+        },
+        {
+          "id": "q066_c4",
+          "text": "It makes all properties read-only"
+        }
+      ],
+      "correctChoiceIds": [
+        "q066_c1"
+      ],
+      "explanation": "`unknown` is safer than `any` because you must narrow before use.",
+      "prompt": "Why is `unknown` safer than `any`?"
+    },
+    {
+      "id": "q067",
+      "value": null,
+      "key": "never_type",
+      "label": "TS-67",
+      "title": "The never Type",
+      "required": true,
+      "order": 67,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q067_c1",
+          "text": "It represents values that should not exist or code paths that cannot produce a value"
+        },
+        {
+          "id": "q067_c2",
+          "text": "It represents any possible runtime value"
+        },
+        {
+          "id": "q067_c3",
+          "text": "It represents nullable strings only"
+        },
+        {
+          "id": "q067_c4",
+          "text": "It makes an object immutable"
+        }
+      ],
+      "correctChoiceIds": [
+        "q067_c1"
+      ],
+      "explanation": "`never` is useful for functions that always throw, infinite loops, and exhausted branches.",
+      "prompt": "What does the `never` type represent?"
+    },
+    {
+      "id": "q068",
+      "value": null,
+      "key": "never_use_cases",
+      "label": "TS-68",
+      "title": "never Use Cases",
+      "required": true,
+      "order": 68,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q068_c1",
+          "text": "Functions that always throw an error"
+        },
+        {
+          "id": "q068_c2",
+          "text": "Functions with infinite loops"
+        },
+        {
+          "id": "q068_c3",
+          "text": "Branches where all possibilities have been excluded"
+        },
+        {
+          "id": "q068_c4",
+          "text": "Variables that should accept every possible value"
+        }
+      ],
+      "correctChoiceIds": [
+        "q068_c1",
+        "q068_c2",
+        "q068_c3"
+      ],
+      "explanation": "The notes describe these as cases where `never` applies.",
+      "prompt": "Select the valid use cases for the `never` type."
+    },
+    {
+      "id": "q069",
+      "value": null,
+      "key": "utility_types_basic",
+      "label": "TS-69",
+      "title": "Utility Types",
+      "required": true,
+      "order": 69,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q069_c1",
+          "text": "Partial<T>"
+        },
+        {
+          "id": "q069_c2",
+          "text": "Required<T>"
+        },
+        {
+          "id": "q069_c3",
+          "text": "Readonly<T>"
+        },
+        {
+          "id": "q069_c4",
+          "text": "Pick<T, K>"
+        },
+        {
+          "id": "q069_c5",
+          "text": "Omit<T, K>"
+        },
+        {
+          "id": "q069_c6",
+          "text": "CompileRuntime<T>"
+        }
+      ],
+      "correctChoiceIds": [
+        "q069_c1",
+        "q069_c2",
+        "q069_c3",
+        "q069_c4",
+        "q069_c5"
+      ],
+      "explanation": "The lesson lists Partial, Required, Readonly, Pick, and Omit as built-in utility types.",
+      "prompt": "Select the TypeScript utility types listed in the notes."
+    },
+    {
+      "id": "q070",
+      "value": null,
+      "key": "partial_type",
+      "label": "TS-70",
+      "title": "Partial Utility",
+      "required": true,
+      "order": 70,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q070_c1",
+          "text": "It makes all properties optional"
+        },
+        {
+          "id": "q070_c2",
+          "text": "It makes all properties required"
+        },
+        {
+          "id": "q070_c3",
+          "text": "It removes null and undefined"
+        },
+        {
+          "id": "q070_c4",
+          "text": "It gets function parameter types"
+        }
+      ],
+      "correctChoiceIds": [
+        "q070_c1"
+      ],
+      "explanation": "`Partial<T>` makes every property in `T` optional.",
+      "prompt": "What does `Partial<T>` do?"
+    },
+    {
+      "id": "q071",
+      "value": null,
+      "key": "record_type",
+      "label": "TS-71",
+      "title": "Record Utility",
+      "required": true,
+      "order": 71,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q071_c1",
+          "text": "Creates a type with keys K and values of type T"
+        },
+        {
+          "id": "q071_c2",
+          "text": "Gets the return type of a function"
+        },
+        {
+          "id": "q071_c3",
+          "text": "Makes all properties read-only"
+        },
+        {
+          "id": "q071_c4",
+          "text": "Excludes null and undefined"
+        }
+      ],
+      "correctChoiceIds": [
+        "q071_c1"
+      ],
+      "explanation": "`Record<K, T>` is useful for maps such as configuration or status objects.",
+      "prompt": "What does `Record<K, T>` create?"
+    },
+    {
+      "id": "q072",
+      "value": null,
+      "key": "function_utility_types",
+      "label": "TS-72",
+      "title": "Function Utility Types",
+      "required": true,
+      "order": 72,
+      "type": "multi",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q072_c1",
+          "text": "ReturnType<T>"
+        },
+        {
+          "id": "q072_c2",
+          "text": "Parameters<T>"
+        },
+        {
+          "id": "q072_c3",
+          "text": "ConstructorParameters<T>"
+        },
+        {
+          "id": "q072_c4",
+          "text": "InstanceType<T>"
+        },
+        {
+          "id": "q072_c5",
+          "text": "RuntimeArguments<T>"
+        }
+      ],
+      "correctChoiceIds": [
+        "q072_c1",
+        "q072_c2",
+        "q072_c3",
+        "q072_c4"
+      ],
+      "explanation": "The lesson includes ReturnType, Parameters, ConstructorParameters, and InstanceType for function and constructor type work.",
+      "prompt": "Select the utility types related to function or constructor types."
+    },
+    {
+      "id": "q073",
+      "value": null,
+      "key": "type_guard_predicate",
+      "label": "TS-73",
+      "title": "Type Guards",
+      "required": true,
+      "order": 73,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q073_c1",
+          "text": "A function returning a predicate such as `user is Admin`"
+        },
+        {
+          "id": "q073_c2",
+          "text": "A function that removes all runtime checks"
+        },
+        {
+          "id": "q073_c3",
+          "text": "A tsconfig option for emitting declarations"
+        },
+        {
+          "id": "q073_c4",
+          "text": "A JSON schema generated from TypeScript"
+        }
+      ],
+      "correctChoiceIds": [
+        "q073_c1"
+      ],
+      "explanation": "The notes show a user-defined guard like `isAdmin(user): user is Admin`.",
+      "prompt": "What is a user-defined type guard?"
+    },
+    {
+      "id": "q074",
+      "value": null,
+      "key": "conditional_types",
+      "label": "TS-74",
+      "title": "Conditional Types",
+      "required": true,
+      "order": 74,
+      "type": "single",
+      "controlType": "unknown",
+      "choices": [
+        {
+          "id": "q074_c1",
+          "text": "They create different types based on a condition"
+        },
+        {
+          "id": "q074_c2",
+          "text": "They run if statements at runtime"
+        },
+        {
+          "id": "q074_c3",
+          "text": "They prevent generic types from being used"
+        },
+        {
+          "id": "q074_c4",
+          "text": "They replace all interfaces"
+        }
+      ],
+      "correctChoiceIds": [
+        "q074_c1"
+      ],
+      "explanation": "Conditional types use a condition such as `T extends \"error\" ? A : B` to choose a type.",
+      "prompt": "What are TypeScript conditional types used for?"
     }
   ]
 }
