@@ -32,9 +32,7 @@
           "text": "A dependency injection token"
         }
       ],
-      "correctChoiceIds": [
-        "b"
-      ],
+      "correctChoiceIds": ["b"],
       "explanation": "`computed` derives values from other signals and is read-only."
     },
     {
@@ -65,9 +63,7 @@
           "text": "assignState"
         }
       ],
-      "correctChoiceIds": [
-        "b"
-      ],
+      "correctChoiceIds": ["b"],
       "explanation": "SignalStore uses `patchState(store, partial)` for immutable partial updates."
     },
     {
@@ -98,9 +94,7 @@
           "text": "Trigger lazy loading"
         }
       ],
-      "correctChoiceIds": [
-        "b"
-      ],
+      "correctChoiceIds": ["b"],
       "explanation": "`effect` reacts to signal changes and is intended for side effects."
     },
     {
@@ -131,9 +125,7 @@
           "text": "`read(signal)`"
         }
       ],
-      "correctChoiceIds": [
-        "c"
-      ],
+      "correctChoiceIds": ["c"],
       "explanation": "Signals are functions. Reading them requires invoking as `signal()`."
     },
     {
@@ -164,10 +156,1620 @@
           "text": "They force global state"
         }
       ],
-      "correctChoiceIds": [
-        "b"
-      ],
+      "correctChoiceIds": ["b"],
       "explanation": "Signals update only consumers depending on changed signal values."
+    },
+    {
+      "id": "cd-q1",
+      "key": "default_change_detection_trigger",
+      "label": "CD-01",
+      "title": "Default Change Detection Trigger",
+      "required": true,
+      "order": 1,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Only changes to `@Input()` values"
+        },
+        {
+          "id": "b",
+          "text": "Many async completions such as timers, promises, XHR, and DOM events patched by Zone.js"
+        },
+        {
+          "id": "c",
+          "text": "Only calls to `signal.set()`"
+        },
+        {
+          "id": "d",
+          "text": "Only manual calls to `detectChanges()`"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "With Zone.js and the Default strategy, Angular is notified after many asynchronous browser operations and can check the component tree.",
+      "prompt": "In a Zone.js-based Angular app using `ChangeDetectionStrategy.Default`, what usually causes Angular to run change detection?"
+    },
+    {
+      "id": "cd-q2",
+      "key": "onpush_setinterval_plain_property",
+      "label": "CD-02",
+      "title": "OnPush and Plain Properties",
+      "required": true,
+      "order": 2,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It updates immediately on every interval tick"
+        },
+        {
+          "id": "b",
+          "text": "It updates only if the property is public"
+        },
+        {
+          "id": "c",
+          "text": "It usually stays stale because the component was not marked for check"
+        },
+        {
+          "id": "d",
+          "text": "Angular throws because OnPush forbids timers"
+        }
+      ],
+      "correctChoiceIds": ["c"],
+      "explanation": "OnPush checks a component when it is marked by specific triggers. A plain timer mutation is not enough by itself.",
+      "prompt": "A component uses `ChangeDetectionStrategy.OnPush`. A `setInterval()` mutates a plain class property, but no input changes, event, async pipe emission, signal update, or manual mark occurs. What happens to the template?"
+    },
+    {
+      "id": "cd-q3",
+      "key": "onpush_valid_triggers",
+      "label": "CD-03",
+      "title": "Valid OnPush Triggers",
+      "required": true,
+      "order": 3,
+      "type": "multi",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A new input value or object reference from the parent"
+        },
+        {
+          "id": "b",
+          "text": "An Angular-bound event such as `(click)`"
+        },
+        {
+          "id": "c",
+          "text": "An `AsyncPipe` emission"
+        },
+        {
+          "id": "d",
+          "text": "Mutating an arbitrary nested object property without changing a reference"
+        }
+      ],
+      "correctChoiceIds": ["a", "b", "c"],
+      "explanation": "OnPush reacts to explicit framework notifications such as input reference changes, template events, async pipe emissions, signal updates, and manual change detector calls.",
+      "prompt": "Which events can mark an OnPush component for checking?"
+    },
+    {
+      "id": "cd-q4",
+      "key": "signals_with_onpush",
+      "label": "CD-04",
+      "title": "Signals with OnPush",
+      "required": true,
+      "order": 4,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Signals force Angular to check every component on every browser task"
+        },
+        {
+          "id": "b",
+          "text": "Signal reads are tracked, and signal updates can mark dependent views for efficient updates"
+        },
+        {
+          "id": "c",
+          "text": "Signals disable all lifecycle hooks"
+        },
+        {
+          "id": "d",
+          "text": "Signals are just aliases for RxJS `BehaviorSubject`"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Signals make dependencies explicit. When a signal read by a template changes, Angular can update the dependent view without relying on broad async patching.",
+      "prompt": "Why do signals fit well with OnPush change detection?"
+    },
+    {
+      "id": "cd-q5",
+      "key": "zoneless_plain_variable",
+      "label": "CD-05",
+      "title": "Zoneless Plain Variables",
+      "required": true,
+      "order": 5,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Zoneless apps cannot use timers"
+        },
+        {
+          "id": "b",
+          "text": "Without Zone.js, the timer completion itself is not an automatic change detection notification"
+        },
+        {
+          "id": "c",
+          "text": "Plain class properties are compile-time constants"
+        },
+        {
+          "id": "d",
+          "text": "The template must use `| async` for every value"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Zoneless mode relies on explicit notifications such as signals, events, async pipe emissions, input changes, or manual marking.",
+      "prompt": "In a zoneless Angular app, why does updating a plain class property inside `setInterval()` often not update the template?"
+    },
+    {
+      "id": "rxjs-state-q1",
+      "key": "behaviorsubject_state_holder",
+      "label": "RXS-01",
+      "title": "BehaviorSubject as State",
+      "required": true,
+      "order": 6,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It stores a current value and emits values to subscribers"
+        },
+        {
+          "id": "b",
+          "text": "It can only emit once and then completes"
+        },
+        {
+          "id": "c",
+          "text": "It automatically creates Angular inputs"
+        },
+        {
+          "id": "d",
+          "text": "It replaces the Angular router"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`BehaviorSubject` has a current value and an observable stream, which makes it useful for small local state examples.",
+      "prompt": "Why is `BehaviorSubject<T>` useful as a simple local state holder?"
+    },
+    {
+      "id": "rxjs-state-q2",
+      "key": "combinelatest_derived_state",
+      "label": "RXS-02",
+      "title": "Derived Observable State",
+      "required": true,
+      "order": 7,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Use `combineLatest([options$, selectedKey$]).pipe(map(...))`"
+        },
+        {
+          "id": "b",
+          "text": "Read only `options$.value` once in the constructor"
+        },
+        {
+          "id": "c",
+          "text": "Use `EventEmitter` as the state store"
+        },
+        {
+          "id": "d",
+          "text": "Use `setTimeout()` to poll both values"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`combineLatest` derives a stream from multiple source streams and recalculates when either source emits.",
+      "prompt": "When `selectedValue$` depends on both `options$` and `selectedKey$`, which RxJS pattern fits best?"
+    },
+    {
+      "id": "rxjs-state-q3",
+      "key": "debouncetime_zero",
+      "label": "RXS-03",
+      "title": "debounceTime(0)",
+      "required": true,
+      "order": 8,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "To wait a full second before every emission"
+        },
+        {
+          "id": "b",
+          "text": "To collapse synchronous updates so derived logic sees the final state"
+        },
+        {
+          "id": "c",
+          "text": "To convert an Observable into a signal"
+        },
+        {
+          "id": "d",
+          "text": "To make `BehaviorSubject` read-only"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "`debounceTime(0)` yields to the event loop, allowing multiple synchronous `.next()` calls to settle before mapping.",
+      "prompt": "In the course example, why is `debounceTime(0)` used after `combineLatest()`?"
+    },
+    {
+      "id": "rxjs-state-q4",
+      "key": "atomic_state_update",
+      "label": "RXS-04",
+      "title": "Avoiding Stale Derived Reads",
+      "required": true,
+      "order": 9,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It makes the read, guard, and write happen against one source of truth"
+        },
+        {
+          "id": "b",
+          "text": "It prevents TypeScript from checking the object"
+        },
+        {
+          "id": "c",
+          "text": "It makes `firstValueFrom()` synchronous"
+        },
+        {
+          "id": "d",
+          "text": "It removes the need for immutable updates"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Keeping related state together helps avoid stale decisions caused by async gaps between reading derived state and writing source state.",
+      "prompt": "Why does the lesson recommend storing related values like `a` and `b` in one state object when an update depends on their sum?"
+    },
+    {
+      "id": "sig-first-q1",
+      "key": "read_signal",
+      "label": "SIG-01",
+      "title": "Reading a Signal",
+      "required": true,
+      "order": 10,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`count.value`"
+        },
+        {
+          "id": "b",
+          "text": "`count()`"
+        },
+        {
+          "id": "c",
+          "text": "`count.getValue()`"
+        },
+        {
+          "id": "d",
+          "text": "`await count`"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Angular signals are callable value containers. Calling the signal reads its current value.",
+      "prompt": "How do you read the current value of `const count = signal(0)`?"
+    },
+    {
+      "id": "sig-first-q2",
+      "key": "set_vs_update",
+      "label": "SIG-02",
+      "title": "set() vs update()",
+      "required": true,
+      "order": 11,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`set()` replaces the value; `update()` derives the next value from the previous value"
+        },
+        {
+          "id": "b",
+          "text": "`set()` only works in templates; `update()` only works in constructors"
+        },
+        {
+          "id": "c",
+          "text": "`set()` creates a computed signal; `update()` creates an effect"
+        },
+        {
+          "id": "d",
+          "text": "Both methods are only available on `computed()` signals"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`set(value)` writes a specific value, while `update(fn)` receives the previous value and returns the next value.",
+      "prompt": "Which statement correctly describes `set()` and `update()` on a writable signal?"
+    },
+    {
+      "id": "sig-first-q3",
+      "key": "computed_readonly",
+      "label": "SIG-03",
+      "title": "Computed Signals",
+      "required": true,
+      "order": 12,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A writable signal that must be manually updated"
+        },
+        {
+          "id": "b",
+          "text": "A derived read-only signal that recalculates from its signal dependencies"
+        },
+        {
+          "id": "c",
+          "text": "An Angular output event"
+        },
+        {
+          "id": "d",
+          "text": "A dependency injection token"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "`computed()` creates a read-only derived signal from the signals read inside its function.",
+      "prompt": "What does `computed(() => count() * 2)` provide?"
+    },
+    {
+      "id": "sig-first-q4",
+      "key": "signal_template_call",
+      "label": "SIG-04",
+      "title": "Calling Signals in Templates",
+      "required": true,
+      "order": 13,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Signals are tracked reactive reads, so Angular can know which bindings depend on them"
+        },
+        {
+          "id": "b",
+          "text": "Signals are executed only once at build time"
+        },
+        {
+          "id": "c",
+          "text": "Signals skip change detection entirely"
+        },
+        {
+          "id": "d",
+          "text": "Angular converts every method call into a signal automatically"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Signal calls are part of Angular's reactive model, so the framework can track dependencies precisely.",
+      "prompt": "Why is `{{ count() }}` acceptable in an Angular template even though arbitrary method calls in templates are often discouraged?"
+    },
+    {
+      "id": "ctx-q1",
+      "key": "valid_injection_contexts",
+      "label": "CTX-01",
+      "title": "Where inject() Works",
+      "required": true,
+      "order": 14,
+      "type": "multi",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A component or service field initializer"
+        },
+        {
+          "id": "b",
+          "text": "A component constructor"
+        },
+        {
+          "id": "c",
+          "text": "An arbitrary click handler called later by the user"
+        },
+        {
+          "id": "d",
+          "text": "A function executed by `runInInjectionContext(injector, fn)`"
+        }
+      ],
+      "correctChoiceIds": ["a", "b", "d"],
+      "explanation": "`inject()` requires an injection context. Field initializers, constructors, factories, and functions run with `runInInjectionContext()` are valid contexts.",
+      "prompt": "Where can `inject()` normally be called without passing an explicit injector?"
+    },
+    {
+      "id": "ctx-q2",
+      "key": "destroyref_cleanup",
+      "label": "CTX-02",
+      "title": "DestroyRef Cleanup",
+      "required": true,
+      "order": 15,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Registering cleanup so the subscription is unsubscribed when the component is destroyed"
+        },
+        {
+          "id": "b",
+          "text": "Converting an Observable into a signal"
+        },
+        {
+          "id": "c",
+          "text": "Making a route guard functional"
+        },
+        {
+          "id": "d",
+          "text": "Forcing a required input to become optional"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`DestroyRef.onDestroy()` registers teardown logic tied to the lifecycle of the injection context.",
+      "prompt": "What is `DestroyRef` used for in the interval subscription example?"
+    },
+    {
+      "id": "ctx-q3",
+      "key": "effect_requires_injector",
+      "label": "CTX-03",
+      "title": "Creating Effects Later",
+      "required": true,
+      "order": 16,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pass `{ injector: this.injector }` to `effect()` or run the code in an injection context"
+        },
+        {
+          "id": "b",
+          "text": "Wrap the effect in `setTimeout()`"
+        },
+        {
+          "id": "c",
+          "text": "Declare the method as `async`"
+        },
+        {
+          "id": "d",
+          "text": "Use `@Output()` instead of `effect()`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Effects need an injection context so Angular can tie their lifetime to cleanup services such as `DestroyRef`.",
+      "prompt": "A method wants to create an `effect()` after construction. What is the correct pattern shown in the course?"
+    },
+    {
+      "id": "ctx-q4",
+      "key": "effectref_destroy",
+      "label": "CTX-04",
+      "title": "Stopping an Effect",
+      "required": true,
+      "order": 17,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Call `.destroy()` on the `EffectRef`"
+        },
+        {
+          "id": "b",
+          "text": "Call `.complete()` on the signal"
+        },
+        {
+          "id": "c",
+          "text": "Set the effect variable to `undefined` only"
+        },
+        {
+          "id": "d",
+          "text": "Call `unsubscribe()` on the component instance"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`effect()` returns an `EffectRef`. Calling `destroy()` stops that effect.",
+      "prompt": "How can a manually stored `EffectRef` be stopped before the component is destroyed?"
+    },
+    {
+      "id": "cmp-eff-q1",
+      "key": "computed_good_usage",
+      "label": "CME-01",
+      "title": "Good computed() Usage",
+      "required": true,
+      "order": 18,
+      "type": "multi",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Reading one or more writable signals"
+        },
+        {
+          "id": "b",
+          "text": "Reading another computed signal"
+        },
+        {
+          "id": "c",
+          "text": "Creating a new signal every time the computed runs"
+        },
+        {
+          "id": "d",
+          "text": "Returning a value derived from immutable non-signal constants"
+        }
+      ],
+      "correctChoiceIds": ["a", "b", "d"],
+      "explanation": "A computed should derive a value from signals and stable data. It should not create signals or perform side effects.",
+      "prompt": "Which are good uses inside a `computed()` function?"
+    },
+    {
+      "id": "cmp-eff-q2",
+      "key": "computed_bad_usage",
+      "label": "CME-02",
+      "title": "Bad computed() Usage",
+      "required": true,
+      "order": 19,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`computed(() => price() * quantity())`"
+        },
+        {
+          "id": "b",
+          "text": "`computed(() => firstName() + ' ' + lastName())`"
+        },
+        {
+          "id": "c",
+          "text": "`computed(() => { count.set(10); return count(); })`"
+        },
+        {
+          "id": "d",
+          "text": "`computed(() => items().length)`"
+        }
+      ],
+      "correctChoiceIds": ["c"],
+      "explanation": "Computed functions should be pure derivations. Writing to a signal inside a computed is a side effect and can create invalid reactive flows.",
+      "prompt": "Which implementation is a poor fit for `computed()`?"
+    },
+    {
+      "id": "cmp-eff-q3",
+      "key": "effect_purpose",
+      "label": "CME-03",
+      "title": "Effect Purpose",
+      "required": true,
+      "order": 20,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Performing a side effect such as logging or saving when signals change"
+        },
+        {
+          "id": "b",
+          "text": "Replacing every `computed()` value"
+        },
+        {
+          "id": "c",
+          "text": "Declaring a component input"
+        },
+        {
+          "id": "d",
+          "text": "Declaring a router path"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Effects rerun when the signals they read change and are intended for side effects, not primary state derivation.",
+      "prompt": "What is an appropriate use for `effect()`?"
+    },
+    {
+      "id": "cmp-eff-q4",
+      "key": "effect_batching",
+      "label": "CME-04",
+      "title": "Effect Re-execution",
+      "required": true,
+      "order": 21,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "The effect can run once with the latest accumulated values"
+        },
+        {
+          "id": "b",
+          "text": "The effect must run once per changed signal synchronously"
+        },
+        {
+          "id": "c",
+          "text": "The effect stops forever"
+        },
+        {
+          "id": "d",
+          "text": "The signals become read-only"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Effects are scheduled reactive work and can observe the latest values after multiple changes are accumulated.",
+      "prompt": "If multiple signal dependencies change before Angular flushes an effect, what does the course emphasize?"
+    },
+    {
+      "id": "interop-q1",
+      "key": "toobservable_purpose",
+      "label": "INT-01",
+      "title": "Signal to Observable",
+      "required": true,
+      "order": 22,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Converts a signal into an RxJS Observable that emits when the signal changes"
+        },
+        {
+          "id": "b",
+          "text": "Converts an Observable into a writable signal"
+        },
+        {
+          "id": "c",
+          "text": "Creates a component output"
+        },
+        {
+          "id": "d",
+          "text": "Disables signal dependency tracking"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`toObservable()` exposes signal state to RxJS pipelines.",
+      "prompt": "What does `toObservable(this.number)` do?"
+    },
+    {
+      "id": "interop-q2",
+      "key": "tosignal_initial_value",
+      "label": "INT-02",
+      "title": "Observable to Signal",
+      "required": true,
+      "order": 23,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Signals always need a current value, while an async Observable may not emit immediately"
+        },
+        {
+          "id": "b",
+          "text": "It makes the Observable emit synchronously"
+        },
+        {
+          "id": "c",
+          "text": "It prevents cleanup on destroy"
+        },
+        {
+          "id": "d",
+          "text": "It turns the returned signal into an output"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Without an initial value, the signal value may be `undefined` until the first Observable emission.",
+      "prompt": "Why is `initialValue` commonly passed to `toSignal()` for asynchronous Observables?"
+    },
+    {
+      "id": "interop-q3",
+      "key": "tosignal_requiresync",
+      "label": "INT-03",
+      "title": "requireSync",
+      "required": true,
+      "order": 24,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Only when `source$` is guaranteed to emit synchronously during subscription"
+        },
+        {
+          "id": "b",
+          "text": "Whenever `source$` is an HTTP request"
+        },
+        {
+          "id": "c",
+          "text": "Only inside `ngOnInit()`"
+        },
+        {
+          "id": "d",
+          "text": "Whenever no cleanup is needed"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`requireSync: true` asserts that the Observable emits immediately. Angular throws if that is not true.",
+      "prompt": "When should `toSignal(source$, { requireSync: true })` be used?"
+    },
+    {
+      "id": "interop-q4",
+      "key": "interop_injection_context",
+      "label": "INT-04",
+      "title": "Interop Creation Context",
+      "required": true,
+      "order": 25,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`ngOnInit()` is not itself an injection context"
+        },
+        {
+          "id": "b",
+          "text": "`ngOnInit()` cannot access class fields"
+        },
+        {
+          "id": "c",
+          "text": "RxJS interop APIs only work in services"
+        },
+        {
+          "id": "d",
+          "text": "Signals cannot be created after construction"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "By default these APIs use the current injection context for cleanup. Outside such a context, pass an `Injector` option.",
+      "prompt": "Why can calling `toSignal()` or `toObservable()` in `ngOnInit()` fail unless an injector is provided?"
+    },
+    {
+      "id": "interop-q5",
+      "key": "immutable_signal_array",
+      "label": "INT-05",
+      "title": "Immutable Array Updates",
+      "required": true,
+      "order": 26,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`names().push('Dana')`"
+        },
+        {
+          "id": "b",
+          "text": "`names.update(names => [...names, 'Dana'])`"
+        },
+        {
+          "id": "c",
+          "text": "`names().concat('Dana')` without calling `set` or `update`"
+        },
+        {
+          "id": "d",
+          "text": "`names.value.push('Dana')`"
+        }
+      ],
+      "correctChoiceIds": ["b"],
+      "explanation": "Array and object signal values should be replaced with new references rather than mutated in place.",
+      "prompt": "Which update is preferred for adding `Dana` to `names = signal(['Alice'])`?"
+    },
+    {
+      "id": "api-q1",
+      "key": "functional_guard",
+      "label": "API-01",
+      "title": "Functional Guard Syntax",
+      "required": true,
+      "order": 27,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`export const authGuard: CanActivateFn = () => inject(AuthService).isLoggedIn();`"
+        },
+        {
+          "id": "b",
+          "text": "`@Input() authGuard = true;`"
+        },
+        {
+          "id": "c",
+          "text": "`signal.guard(AuthService)`"
+        },
+        {
+          "id": "d",
+          "text": "`new EventEmitter<CanActivate>()`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Functional guards use function types such as `CanActivateFn` and can call `inject()` inside the guard function.",
+      "prompt": "Which modern guard style replaces many class-based `CanActivate` guard classes?"
+    },
+    {
+      "id": "api-q2",
+      "key": "input_old_vs_new",
+      "label": "API-02",
+      "title": "Old and New Input APIs",
+      "required": true,
+      "order": 28,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Old: `@Input() title!: string`; New: `readonly title = input.required<string>()`"
+        },
+        {
+          "id": "b",
+          "text": "Old: `output<string>()`; New: `@Input()`"
+        },
+        {
+          "id": "c",
+          "text": "Old: `viewChild()`; New: `@Input()`"
+        },
+        {
+          "id": "d",
+          "text": "Old: `computed()`; New: `ngOnChanges()`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Decorator inputs remain supported, while new code can use signal input initializer functions.",
+      "prompt": "Which pair correctly matches old and new Angular input declaration styles?"
+    },
+    {
+      "id": "api-q3",
+      "key": "input_readonly_computed",
+      "label": "API-03",
+      "title": "Deriving from Signal Inputs",
+      "required": true,
+      "order": 29,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Because `input()` values are signals and `computed()` reruns when the input signals it reads change"
+        },
+        {
+          "id": "b",
+          "text": "Because required inputs never change after initialization"
+        },
+        {
+          "id": "c",
+          "text": "Because pipes automatically create computed signals"
+        },
+        {
+          "id": "d",
+          "text": "Because `ngOnChanges()` is required only for services"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Signal inputs are read with `amount()` or `currency()`, so computed values can derive from them reactively.",
+      "prompt": "In the currency converter example, why can `converted` be a `computed()` signal instead of recalculated in `ngOnChanges()`?"
+    },
+    {
+      "id": "api-q4",
+      "key": "output_old_vs_new",
+      "label": "API-04",
+      "title": "Old and New Output APIs",
+      "required": true,
+      "order": 30,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`readonly refreshRequired = output<void>()`"
+        },
+        {
+          "id": "b",
+          "text": "`readonly refreshRequired = input<void>()`"
+        },
+        {
+          "id": "c",
+          "text": "`readonly refreshRequired = signal<void>()`"
+        },
+        {
+          "id": "d",
+          "text": "`readonly refreshRequired = computed<void>()`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`output()` declares a component output and returns an emitter ref with `.emit()`.",
+      "prompt": "Which new output API is the counterpart to `@Output() refreshRequired = new EventEmitter<void>()`?"
+    },
+    {
+      "id": "api-q5",
+      "key": "output_not_signal",
+      "label": "API-05",
+      "title": "Outputs Are Events",
+      "required": true,
+      "order": 31,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It is read by calling `refreshRequired()`"
+        },
+        {
+          "id": "b",
+          "text": "It stores current component state"
+        },
+        {
+          "id": "c",
+          "text": "It represents events and emits with `.emit()`"
+        },
+        {
+          "id": "d",
+          "text": "It automatically bubbles like a native DOM event"
+        }
+      ],
+      "correctChoiceIds": ["c"],
+      "explanation": "Outputs are event emitters, not state signals. Custom Angular outputs do not bubble through the DOM.",
+      "prompt": "Which statement about `output()` is correct?"
+    },
+    {
+      "id": "api-q6",
+      "key": "model_two_way",
+      "label": "API-06",
+      "title": "model() and Two-way Binding",
+      "required": true,
+      "order": 32,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A writable signal that also participates in input/output two-way binding"
+        },
+        {
+          "id": "b",
+          "text": "A read-only signal input only"
+        },
+        {
+          "id": "c",
+          "text": "A router resolver"
+        },
+        {
+          "id": "d",
+          "text": "A DOM event listener"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`model()` creates a writable model input and pairs naturally with `[(selected)]`.",
+      "prompt": "What does `model.required<string>()` provide in the option selector example?"
+    },
+    {
+      "id": "api-q7",
+      "key": "model_binding_signal_instance",
+      "label": "API-07",
+      "title": "Binding a Model to a Signal",
+      "required": true,
+      "order": 33,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`[(selected)]=\"currency\"`"
+        },
+        {
+          "id": "b",
+          "text": "`[(selected)]=\"currency()\"`"
+        },
+        {
+          "id": "c",
+          "text": "`[selected]=\"currency\"` only"
+        },
+        {
+          "id": "d",
+          "text": "`(selected)=\"currency.set($event)\"` only"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "For model binding to a writable signal, pass the signal instance, not the current signal value.",
+      "prompt": "When a parent has `currency = signal('USD')`, what is the correct banana-in-a-box binding to a child model named `selected`?"
+    },
+    {
+      "id": "api-q8",
+      "key": "viewchild_signal",
+      "label": "API-08",
+      "title": "Signal View Queries",
+      "required": true,
+      "order": 34,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A signal whose value is the queried component instance or `undefined` until available"
+        },
+        {
+          "id": "b",
+          "text": "A promise that resolves after `ngAfterViewInit()`"
+        },
+        {
+          "id": "c",
+          "text": "An `EventEmitter`"
+        },
+        {
+          "id": "d",
+          "text": "A plain property automatically assigned before the constructor"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Signal queries expose query results as signals. Optional queries can be `undefined` until Angular creates the result.",
+      "prompt": "What does `viewChild(CurrencyConverterComponent)` return in the new query API?"
+    },
+    {
+      "id": "api-q9",
+      "key": "viewchild_required_timing",
+      "label": "API-09",
+      "title": "Required Query Timing",
+      "required": true,
+      "order": 35,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It removes `undefined` from the type, but reading too early can still throw because the view is not created yet"
+        },
+        {
+          "id": "b",
+          "text": "It can only query projected content"
+        },
+        {
+          "id": "c",
+          "text": "It disables change detection"
+        },
+        {
+          "id": "d",
+          "text": "It must be used with `@ViewChild()` at the same time"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Required query results are not available earlier just because the type is required.",
+      "prompt": "What is a key caution for `viewChild.required(...)`?"
+    },
+    {
+      "id": "api-q10",
+      "key": "contentchild_template",
+      "label": "API-10",
+      "title": "Projected Template Query",
+      "required": true,
+      "order": 36,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "To capture a projected `TemplateRef` as a signal and render it where the component chooses"
+        },
+        {
+          "id": "b",
+          "text": "To mutate raw DOM nodes outside Angular rendering"
+        },
+        {
+          "id": "c",
+          "text": "To replace all inputs with outputs"
+        },
+        {
+          "id": "d",
+          "text": "To force the parent to use Zone.js"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "A marker directive can inject `TemplateRef`, and `contentChild()` lets the component reactively access the projected template.",
+      "prompt": "In the custom option template example, why use a directive plus `contentChild()`?"
+    },
+    {
+      "id": "api-q11",
+      "key": "host_metadata_signals",
+      "label": "API-11",
+      "title": "Signal-driven Host Bindings",
+      "required": true,
+      "order": 37,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Use directive `host` metadata such as `'[style.color]': 'color()'` and `'(click)': 'invert()'`"
+        },
+        {
+          "id": "b",
+          "text": "Copy the signal into a plain property with an effect just for `@HostBinding()`"
+        },
+        {
+          "id": "c",
+          "text": "Use direct DOM manipulation in every click handler"
+        },
+        {
+          "id": "d",
+          "text": "Use `@Output()` for CSS styles"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Host metadata keeps signal-driven host bindings declarative and avoids a needless signal-to-property bridge.",
+      "prompt": "Which directive pattern is preferred in the RGB example for binding host color and click behavior?"
+    },
+    {
+      "id": "api-q12",
+      "key": "output_from_observable",
+      "label": "API-12",
+      "title": "outputFromObservable",
+      "required": true,
+      "order": 38,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "When the event source is already an RxJS stream and should be exposed as an Angular output"
+        },
+        {
+          "id": "b",
+          "text": "When the child needs writable state from the parent"
+        },
+        {
+          "id": "c",
+          "text": "When an input should become required"
+        },
+        {
+          "id": "d",
+          "text": "When a `computed()` value needs to become mutable"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`outputFromObservable()` subscribes to an Observable and forwards its `next` values as output events until the component is destroyed.",
+      "prompt": "When is `outputFromObservable(refreshRequired$)` a good fit?"
+    },
+    {
+      "id": "router-q1",
+      "key": "router_config_features",
+      "label": "RTR-01",
+      "title": "Router Feature Functions",
+      "required": true,
+      "order": 39,
+      "type": "multi",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`withHashLocation()`"
+        },
+        {
+          "id": "b",
+          "text": "`withComponentInputBinding()`"
+        },
+        {
+          "id": "c",
+          "text": "`withSignalsOnly()`"
+        },
+        {
+          "id": "d",
+          "text": "`withTemplateDrivenRoutes()`"
+        }
+      ],
+      "correctChoiceIds": ["a", "b"],
+      "explanation": "The sample configures hash URLs and binds route data/params directly to component inputs.",
+      "prompt": "Which router feature functions are used in the lesson's `provideRouter()` setup?"
+    },
+    {
+      "id": "router-q2",
+      "key": "route_component_reuse",
+      "label": "RTR-02",
+      "title": "Route Param Changes",
+      "required": true,
+      "order": 40,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Angular may reuse the same component instance when only the route parameter changes"
+        },
+        {
+          "id": "b",
+          "text": "Route parameters are always numbers"
+        },
+        {
+          "id": "c",
+          "text": "RouterLink arrays are not reactive"
+        },
+        {
+          "id": "d",
+          "text": "Signals cannot be used with the router"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Navigating from one detail id to another can keep the same component instance alive, so the component must respond to new params.",
+      "prompt": "Why must a movie details component react to route parameter changes instead of only reading the initial route value?"
+    },
+    {
+      "id": "router-q3",
+      "key": "route_param_signal_input",
+      "label": "RTR-03",
+      "title": "Signal Route Input",
+      "required": true,
+      "order": 41,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`readonly id = input.required({ transform: numberAttribute });`"
+        },
+        {
+          "id": "b",
+          "text": "`readonly id = output<number>();`"
+        },
+        {
+          "id": "c",
+          "text": "`@Output() id = new EventEmitter<number>();`"
+        },
+        {
+          "id": "d",
+          "text": "`readonly id = viewChild('id');`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Route params are strings by default, so `numberAttribute` converts the bound value for numeric comparisons.",
+      "prompt": "With `withComponentInputBinding()` enabled and a route parameter named `id`, which component field can receive it as a signal input?"
+    },
+    {
+      "id": "router-q4",
+      "key": "switchmap_route_api",
+      "label": "RTR-04",
+      "title": "switchMap for Route-driven Requests",
+      "required": true,
+      "order": 42,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It cancels or unsubscribes from the previous request stream when a new parameter arrives"
+        },
+        {
+          "id": "b",
+          "text": "It converts all route params to numbers automatically"
+        },
+        {
+          "id": "c",
+          "text": "It makes `ActivatedRoute` unnecessary in every case"
+        },
+        {
+          "id": "d",
+          "text": "It prevents templates from using `AsyncPipe`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`switchMap()` keeps the latest route-driven async work active and drops older in-flight work.",
+      "prompt": "Why is `switchMap()` useful when route params trigger HTTP requests?"
+    },
+    {
+      "id": "router-q5",
+      "key": "asyncpipe_vs_signal_template",
+      "label": "RTR-05",
+      "title": "Observable vs Signal in Templates",
+      "required": true,
+      "order": 43,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Observable: `movie$ | async`; Signal: `movie()`"
+        },
+        {
+          "id": "b",
+          "text": "Observable: `movie$()`; Signal: `movie | async`"
+        },
+        {
+          "id": "c",
+          "text": "Observable and Signal: always use `.value`"
+        },
+        {
+          "id": "d",
+          "text": "Observable and Signal: always use `await` in the template"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "Observables are unwrapped with `AsyncPipe`; signals are read by calling them.",
+      "prompt": "Which template usage correctly matches the component state shape?"
+    },
+    {
+      "id": "forms-q1",
+      "key": "signal_forms_model",
+      "label": "FRM-01",
+      "title": "Signal Forms Model",
+      "required": true,
+      "order": 44,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It stores the form data model as signal state"
+        },
+        {
+          "id": "b",
+          "text": "It declares a component output"
+        },
+        {
+          "id": "c",
+          "text": "It configures the router"
+        },
+        {
+          "id": "d",
+          "text": "It creates a DOM query"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "The signal form is built around a signal-backed model object.",
+      "prompt": "In the subscribe form sample, what is `subscribeModel = signal<Subscription>(initialData)` used for?"
+    },
+    {
+      "id": "forms-q2",
+      "key": "signal_forms_form_function",
+      "label": "FRM-02",
+      "title": "Creating a Signal Form",
+      "required": true,
+      "order": 45,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`form(this.subscribeModel, SubscriptionSchema)`"
+        },
+        {
+          "id": "b",
+          "text": "`new FormGroup(this.subscribeModel)`"
+        },
+        {
+          "id": "c",
+          "text": "`outputFromObservable(this.subscribeModel)`"
+        },
+        {
+          "id": "d",
+          "text": "`viewChild(this.subscribeModel)`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "The example imports `form` from `@angular/forms/signals` and passes the model signal plus schema.",
+      "prompt": "Which expression creates the signal form in the course example?"
+    },
+    {
+      "id": "forms-q3",
+      "key": "formfield_binding",
+      "label": "FRM-03",
+      "title": "Binding Inputs to Fields",
+      "required": true,
+      "order": 46,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`[formField]=\"subscribeForm.email\"`"
+        },
+        {
+          "id": "b",
+          "text": "`[(ngModel)]=\"subscribeForm.email\"`"
+        },
+        {
+          "id": "c",
+          "text": "`[routerLink]=\"subscribeForm.email\"`"
+        },
+        {
+          "id": "d",
+          "text": "`(emailChange)=\"subscribeForm.email.set($event)\"`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "The sample uses the `FormField` directive and binds each control with `[formField]`.",
+      "prompt": "How does the template bind an input element to the email field in the signal form?"
+    },
+    {
+      "id": "forms-q4",
+      "key": "conditional_required",
+      "label": "FRM-04",
+      "title": "Conditional Validators",
+      "required": true,
+      "order": 47,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "The `required(rootPath.email, { when: ({ valueOf }) => valueOf(rootPath.sendViaEmail) === true })` rule"
+        },
+        {
+          "id": "b",
+          "text": "The placeholder text on the input"
+        },
+        {
+          "id": "c",
+          "text": "The `effect()` that logs email changes"
+        },
+        {
+          "id": "d",
+          "text": "The `max()` validator on `yearsAsFan`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "The `when` predicate uses reactive form state to apply the required rule only when email delivery is selected.",
+      "prompt": "What makes the email field conditionally required in `SubscriptionSchema`?"
+    },
+    {
+      "id": "forms-q5",
+      "key": "field_state_signals",
+      "label": "FRM-05",
+      "title": "Reading Field State",
+      "required": true,
+      "order": 48,
+      "type": "multi",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`subscribeForm.email().invalid()`"
+        },
+        {
+          "id": "b",
+          "text": "`subscribeForm.email().errors()`"
+        },
+        {
+          "id": "c",
+          "text": "`subscribeForm.valid()`"
+        },
+        {
+          "id": "d",
+          "text": "`subscribeForm.email.getValue()`"
+        }
+      ],
+      "correctChoiceIds": ["a", "b", "c"],
+      "explanation": "Signal forms expose reactive state through callable form and field accessors such as `valid()`, `invalid()`, and `errors()`.",
+      "prompt": "Which field/form state methods are shown in the signal form comments or template?"
+    },
+    {
+      "id": "svc-q1",
+      "key": "service_private_writable_public_readonly",
+      "label": "SVC-01",
+      "title": "Private Writable, Public Read-only",
+      "required": true,
+      "order": 49,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "To let consumers read questions without allowing them to mutate the service's writable signal directly"
+        },
+        {
+          "id": "b",
+          "text": "To make the questions Observable-only"
+        },
+        {
+          "id": "c",
+          "text": "To prevent templates from reading questions"
+        },
+        {
+          "id": "d",
+          "text": "To make dependency injection optional"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "A common service pattern is private writable state plus public read-only signal access.",
+      "prompt": "Why does `ExamService` keep `#questions = signal<Question[]>(...)` private and expose `questions = this.#questions.asReadonly()`?"
+    },
+    {
+      "id": "svc-q2",
+      "key": "computed_answers",
+      "label": "SVC-02",
+      "title": "Computed Answers",
+      "required": true,
+      "order": 50,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "An array that maps each selected answer index to whether it matches the corresponding question's `correctAnswerIndex`"
+        },
+        {
+          "id": "b",
+          "text": "A new HTTP request for every question"
+        },
+        {
+          "id": "c",
+          "text": "A router URL for the current question"
+        },
+        {
+          "id": "d",
+          "text": "A component output event"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`userAnswers` reads private answer state and question state, then derives correctness for each answered question.",
+      "prompt": "What does the service's `userAnswers` computed signal derive?"
+    },
+    {
+      "id": "svc-q3",
+      "key": "current_question_index",
+      "label": "SVC-03",
+      "title": "Current Question Index",
+      "required": true,
+      "order": 51,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "The next unanswered question is at the index equal to the number of answers already submitted"
+        },
+        {
+          "id": "b",
+          "text": "Question ids are always numeric"
+        },
+        {
+          "id": "c",
+          "text": "Angular arrays are one-based"
+        },
+        {
+          "id": "d",
+          "text": "Signals automatically sort answers"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "If answers are stored in order, the count of submitted answers points to the next question index.",
+      "prompt": "In `ExamService`, why can `currentQuestionIndex` be computed from `this.userAnswers().length`?"
+    },
+    {
+      "id": "svc-q4",
+      "key": "quiz_done_computed",
+      "label": "SVC-04",
+      "title": "Quiz Done Signal",
+      "required": true,
+      "order": 52,
+      "type": "single",
+      "controlType": "textbox",
+      "choices": [
+        {
+          "id": "a",
+          "text": "`computed(() => this.userAnswers().length === this.questions().length)`"
+        },
+        {
+          "id": "b",
+          "text": "`signal(() => this.questions().length)`"
+        },
+        {
+          "id": "c",
+          "text": "`output(() => this.userAnswers().length)`"
+        },
+        {
+          "id": "d",
+          "text": "`viewChild(() => this.questions())`"
+        }
+      ],
+      "correctChoiceIds": ["a"],
+      "explanation": "`isQuizDone` is derived state, so `computed()` is the appropriate signal API.",
+      "prompt": "Which expression best describes `isQuizDone` in the service?"
     }
   ]
 }
